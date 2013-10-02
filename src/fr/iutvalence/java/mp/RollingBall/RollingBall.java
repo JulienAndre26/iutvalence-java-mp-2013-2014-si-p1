@@ -1,5 +1,6 @@
 package fr.iutvalence.java.mp.RollingBall;
 
+// TODO (fix) add a reference to README.md
 /**
  * 
  * Means and rules of the game.
@@ -8,26 +9,31 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class RollingBall
 {
+    // TODO (fix) rename field (more explicit)
     /**
      * the name of the player
      */
     private String a;
-    
+
+    // TODO (fix) rename field (more explicit)
     /**
      * the map
      */
     private Map m;
     
+    // TODO (fix) rename field (more explicit)
     /**
      * the ball
      */
     private Ball b;
     
+    // TODO (fix) rename field (more explicit)
     /**
      * the score
      */
     private Score s;
     
+    // TODO (fix) fix comment. This constructor does not start nothing
     /**
      * Start a game
      * @param a the name of the player

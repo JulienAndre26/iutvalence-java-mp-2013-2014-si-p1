@@ -19,6 +19,7 @@ public class Point
      */
     private int y;
     
+    // TODO (fix) write a "real" comment
     /**
      * a simple point
      * @param x abscissa of the point
