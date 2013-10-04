@@ -1,7 +1,7 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-// TODO (fix) remove unused imports
-import java.util.*;
+// TODO (FIXED) remove unused imports
+
 /**
  * 
  * the map is the field where the ball will roll
@@ -10,27 +10,31 @@ import java.util.*;
  */
 public class Map
 {
-    // TODO (fix) rename field (more explicit)
+    // TODO (FIXED) rename field (more explicit)
     /**
      * physical pieces of the field
      */
-    private Segment seg[];
+    private Segment segmentsOfTheField[];
     
-    // TODO (fix) rename field (more explicit)
+    // TODO (FIXED) rename field (more explicit)
     /**
      * line where the ball can be released
      */
-    private Segment begin;
+    private Segment segmentWhereTheBallCanBeReleased;
     
-    // TODO (fix) write a "real" comment
+    // TODO (FIXED) write a "real" comment
     /**
-     * field of a play
-     * @param seg physical pieces of the field
-     * @param begin line where the ball can be released
+     * map created with two defined parameters : a set of segments
+     * and a segment where the ball can be released
+     * @param segmentsOfTheField physical pieces of the field
+     * @param segmentWhereTheBallCanBeReleased line where the ball can be
+     *        released
      */
-    public Map(Segment seg[], Segment begin)
+    public Map(Segment segmentsOfTheField[], 
+                                Segment segmentWhereTheBallCanBeReleased)
     {
-        this.seg = seg;
-        this.begin = begin;
+        this.segmentsOfTheField = segmentsOfTheField;
+        this.segmentWhereTheBallCanBeReleased = 
+                                        segmentWhereTheBallCanBeReleased;
     }
 }
