@@ -49,5 +49,13 @@ public class RollingBall
         this.mapUsedByThePlayer = mapChoosedByThePlayer;
         this.ballUsedByThePlayer = ballChoosedByThePlayer;
     }
+
+    /**
+     * set the physical rules of our environment and launch the game
+     */
+    public void play()
+    {
+        
+    }
     
 }
