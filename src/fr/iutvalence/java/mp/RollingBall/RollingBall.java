@@ -1,50 +1,53 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-// TODO (fix) add a reference to README.md
+// TODO (FIXED) add a reference to README.md
 /**
  * 
+ * see readme.md
  * Means and rules of the game.
  * @author andrejul
  *
  */
 public class RollingBall
 {
-    // TODO (fix) rename field (more explicit)
+    // TODO (FIXED) rename field (more explicit)
     /**
      * the name of the player
      */
-    private String a;
+    private String nameOfThePlayer;
 
-    // TODO (fix) rename field (more explicit)
+    // TODO (FIXED) rename field (more explicit)
     /**
-     * the map
+     * the map used by the player
      */
-    private Map m;
+    private Map mapUsedByThePlayer;
     
-    // TODO (fix) rename field (more explicit)
+    // TODO (FIXED) rename field (more explicit)
     /**
-     * the ball
+     * the ball used by the player
      */
-    private Ball b;
+    private Ball ballUsedByThePlayer;
     
-    // TODO (fix) rename field (more explicit)
+    // TODO (FIXED) rename field (more explicit)
     /**
-     * the score
+     * the score of the player
      */
-    private Score s;
+    private Score scoreOfThePlayer;
     
-    // TODO (fix) fix comment. This constructor does not start nothing
+    // TODO (FIXED) fix comment. This constructor does not start nothing
     /**
-     * Start a game
-     * @param a the name of the player
-     * @param m the map used by the player
-     * @param b the ball choose by the player
+     * rollingball created with three parameters : the name of the player, the
+     * map where the player wants to play and the ball the player want to use
+     * @param nameOfThePlayerPlaying the name of the player
+     * @param mapChoosedByThePlayer the map used by the player
+     * @param ballChoosedByThePlayer the ball choose by the player
      */
-    public RollingBall(String a, Map m, Ball b)
+    public RollingBall(String nameOfThePlayerPlaying, 
+                        Map mapChoosedByThePlayer, Ball ballChoosedByThePlayer)
     {
-        this.a = a;
-        this.m = m;
-        this.b = b;
+        this.nameOfThePlayer = nameOfThePlayerPlaying;
+        this.mapUsedByThePlayer = mapChoosedByThePlayer;
+        this.ballUsedByThePlayer = ballChoosedByThePlayer;
     }
     
 }
