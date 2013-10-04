@@ -11,35 +11,38 @@ public class Segment
     /**
      * beginning of the segment
      */
-    private Point p;
+    private Point pointOfTheBeginnigOfTheSegment;
     
     /**
      * length of the segment
      */
-    private int l;
+    private int lengthOfTheSegment;
     
     /**
      * angle of the segment
      */
-    private int a;
+    private int angleOfTheSegment;
     
     /**
      * boolean which will decide if the segment is physical or not
      */
-    private boolean f;
+    private boolean physicalOrNot;
     
     /**
-     * a simple segment
-     * @param p beginning of the segment
-     * @param l length of the segment
-     * @param a angle of the segment
-     * @param f boolean which will decide if the segment is physical or not
+     * segment created with four defined parameters : a point, a length, 
+     * an angle and a boolean
+     * @param pointOfTheBeginnigOfTheSegment beginning of the segment
+     * @param lengthOfTheSegment length of the segment
+     * @param angleOfTheSegment angle of the segment
+     * @param physicalOrNot boolean which will decide if the segment is 
+     *        physical or not
      */
-    public Segment(Point p, int l, int a, boolean f)
+    public Segment(Point pointOfTheBeginnigOfTheSegment, int lengthOfTheSegment,
+                                int angleOfTheSegment, boolean physicalOrNot)
     {
-        this.p = p;
-        this.l = l;
-        this.a = a;
-        this.f = f;
+        this.pointOfTheBeginnigOfTheSegment = pointOfTheBeginnigOfTheSegment;
+        this.lengthOfTheSegment = lengthOfTheSegment;
+        this.angleOfTheSegment = angleOfTheSegment;
+        this.physicalOrNot = physicalOrNot;
     }
 }
