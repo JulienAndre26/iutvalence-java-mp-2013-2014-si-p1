@@ -29,5 +29,23 @@ public class Point
         this.x = x;
         this.y = y;
     }
+    
+    /**
+     * method to get the abscissa of the point
+     * @return integer the abscissa of the point 
+     */
+    public int getX()
+    {
+        return this.x;
+    }
+    
+    /**
+     * method to get the ordered of the point
+     * @return integer the ordered of the point 
+     */
+    public int getY()
+    {
+        return this.y;
+    }
 
 }
