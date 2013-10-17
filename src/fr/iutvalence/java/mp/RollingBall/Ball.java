@@ -28,4 +28,13 @@ public class Ball
         this.radius = radiusOfTheBallWanted;
         this.middlePoint = centerOfTheBallWanted;
     }
+    
+    /**
+     * method to get the center of the ball
+     * @return Point the center of the ball
+     */
+    public Point getMiddlePoint()
+    {
+        return this.middlePoint;
+    }
 }
