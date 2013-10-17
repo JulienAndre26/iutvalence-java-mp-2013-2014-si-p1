@@ -12,7 +12,7 @@ public class Map
     /**
      * physical pieces of the field
      */
-    private Segment segmentsOfTheField[];
+    private Segment[] segmentsOfTheField;
     
     /**
      * line where the ball can be released

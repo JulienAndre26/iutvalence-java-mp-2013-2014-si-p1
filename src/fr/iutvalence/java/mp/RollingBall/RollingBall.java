@@ -29,6 +29,7 @@ public class RollingBall
      */
     private Score scoreOfThePlayer;
     
+    // TODO (fix) the following two fields look like local variables
     /**
      * integer used to ease the calculation in the intersect method
      */
@@ -54,6 +55,7 @@ public class RollingBall
         this.ballUsedByThePlayer = ballChoosedByThePlayer;
     }
 
+    // TODO (fix) this method should not be declared here but elsewhere
     /**
      * method which tests if a ball is on(/in) a segment
      * @return return a boolean, if yes : the ball is on a segment, 

@@ -20,7 +20,7 @@ public class Segment
      */
     private Point endingPoint;
 
-    // TODO (FIXED) detail the notion of "physical" (maybe in class comment)
+    // TODO (think about it) is it still useful?
     /**
      * boolean which will decide if the segment is physical or not
      */

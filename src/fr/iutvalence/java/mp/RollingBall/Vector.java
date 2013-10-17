@@ -1,5 +1,6 @@
 package fr.iutvalence.java.mp.RollingBall;
 
+// TODO (fix) detail comment
 /**
  * the Vector is used to set up the physic in the game
  * 
