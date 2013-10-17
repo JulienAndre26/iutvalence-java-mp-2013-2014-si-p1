@@ -19,7 +19,6 @@ public class Point
      */
     private int y;
     
-    // TODO (FIXED) write a "real" comment
     /**
      * point created with two defined integers
      * @param x abscissa of the point

@@ -8,19 +8,16 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class Ball
 {
-    // TODO (FIXED) rename field (more explicit)
     /**
      * radius of the ball
      */
-    private int radiusOfTheBall;
+    private int radius;
     
-    // TODO (FIXED) rename field (more explicit)
     /**
      * center of the ball
      */
-    private Point centerOfTheBall;
+    private Point middlePoint;
     
-    // TODO (FIXED) write a "real" comment
     /**
      * ball created with two defined parameters : a radius and a center
      * @param radiusOfTheBallWanted radius of the ball
@@ -28,7 +25,7 @@ public class Ball
      */
     public Ball(int radiusOfTheBallWanted, Point centerOfTheBallWanted)
     {
-        this.radiusOfTheBall = radiusOfTheBallWanted;
-        this.centerOfTheBall = centerOfTheBallWanted;
+        this.radius = radiusOfTheBallWanted;
+        this.middlePoint = centerOfTheBallWanted;
     }
 }

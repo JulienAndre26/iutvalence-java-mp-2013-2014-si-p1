@@ -1,6 +1,5 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-// TODO (FIXED) add a reference to README.md
 /**
  * 
  * see readme.md
@@ -10,31 +9,26 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class RollingBall
 {
-    // TODO (FIXED) rename field (more explicit)
     /**
      * the name of the player
      */
     private String nameOfThePlayer;
 
-    // TODO (FIXED) rename field (more explicit)
     /**
      * the map used by the player
      */
     private Map mapUsedByThePlayer;
     
-    // TODO (FIXED) rename field (more explicit)
     /**
      * the ball used by the player
      */
     private Ball ballUsedByThePlayer;
     
-    // TODO (FIXED) rename field (more explicit)
     /**
      * the score of the player
      */
     private Score scoreOfThePlayer;
     
-    // TODO (FIXED) fix comment. This constructor does not start nothing
     /**
      * rollingball created with three parameters : the name of the player, the
      * map where the player wants to play and the ball the player want to use

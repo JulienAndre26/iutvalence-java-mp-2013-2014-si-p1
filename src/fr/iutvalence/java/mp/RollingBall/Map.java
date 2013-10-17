@@ -1,6 +1,5 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-// TODO (FIXED) remove unused imports
 
 /**
  * 
@@ -10,19 +9,16 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class Map
 {
-    // TODO (FIXED) rename field (more explicit)
     /**
      * physical pieces of the field
      */
     private Segment segmentsOfTheField[];
     
-    // TODO (FIXED) rename field (more explicit)
     /**
      * line where the ball can be released
      */
     private Segment segmentWhereTheBallCanBeReleased;
     
-    // TODO (FIXED) write a "real" comment
     /**
      * map created with two defined parameters : a set of segments
      * and a segment where the ball can be released
