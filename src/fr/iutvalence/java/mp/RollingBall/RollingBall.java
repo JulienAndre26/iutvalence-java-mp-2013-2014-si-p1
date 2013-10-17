@@ -30,6 +30,16 @@ public class RollingBall
     private Score scoreOfThePlayer;
     
     /**
+     * integer used to ease the calculation in the intersect method
+     */
+    private int x1;
+    
+    /**
+     * integer used
+     */
+    private int y1;
+    
+    /**
      * rollingball created with three parameters : the name of the player, the
      * map where the player wants to play and the ball the player want to use
      * @param nameOfThePlayerPlaying the name of the player
@@ -44,6 +54,17 @@ public class RollingBall
         this.ballUsedByThePlayer = ballChoosedByThePlayer;
     }
 
+    /**
+     * method which tests if a ball is on(/in) a segment
+     * @return return a boolean, if yes : the ball is on a segment, 
+     * otherwise it's out of a segment of the map
+     */
+    private boolean intersect()
+    {
+        x1 = this.ballUsedByThePlayer.getMiddlePoint().getX();
+        y1 = this.ballUsedByThePlayer.getMiddlePoint().getY();
+    }
+    
     /**
      * set the physical rules of our environment and launch the game
      */
