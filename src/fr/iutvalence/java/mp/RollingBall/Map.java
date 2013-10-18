@@ -33,4 +33,13 @@ public class Map
         this.segmentWhereTheBallCanBeReleased = 
                                         segmentWhereTheBallCanBeReleased;
     }
+    
+    /**
+     * method to get the segments of the field
+     * @return Segments[] segments of the field 
+     */
+    public Segment[] getSegmentsOfTheField()
+    {
+        return this.segmentsOfTheField;
+    }
 }
