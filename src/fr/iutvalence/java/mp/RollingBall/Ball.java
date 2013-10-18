@@ -37,4 +37,13 @@ public class Ball
     {
         return this.middlePoint;
     }
+    
+    /**
+     * method to get the radius of the ball
+     * @return Integer radius of the ball
+     */
+    public int getRadius()
+    {
+        return this.radius;
+    }
 }
