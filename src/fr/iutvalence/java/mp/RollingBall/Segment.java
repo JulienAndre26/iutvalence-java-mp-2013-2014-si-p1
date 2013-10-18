@@ -20,26 +20,20 @@ public class Segment
      */
     private Point endingPoint;
 
-    // TODO (think about it) is it still useful?
-    /**
-     * boolean which will decide if the segment is physical or not
-     */
-    private boolean isPhysical;
+    // TODO (FIXED) is it still useful?
 
     /**
      * segment created with four defined parameters : a point, a length, 
      * an angle and a boolean
-     * @param beginingOfTheSegment beginning of the segment
+     * @param beginningOfTheSegment beginning of the segment
      * @param endingOfTheSegment length of the segment
      * @param angleOfTheSegment angle of the segment
      * @param physicalOrNot boolean which will decide if the segment is 
      *        physical or not
      */
-    public Segment(Point beginingOfTheSegment, Point endingOfTheSegment, 
-            boolean physicalOrNot)
+    public Segment(Point beginningOfTheSegment, Point endingOfTheSegment)
     {
-        this.startingPoint = beginingOfTheSegment;
+        this.startingPoint = beginningOfTheSegment;
         this.endingPoint = endingOfTheSegment;
-        this.isPhysical = physicalOrNot;
     }
 }
