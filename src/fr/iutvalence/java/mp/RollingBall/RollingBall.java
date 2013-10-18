@@ -29,16 +29,8 @@ public class RollingBall
      */
     private Score scoreOfThePlayer;
     
-    // TODO (fix) the following two fields look like local variables
-    /**
-     * integer used to ease the calculation in the intersect method
-     */
-    private int x1;
-    
-    /**
-     * integer used
-     */
-    private int y1;
+    // TODO (FIXED) the following two fields look like local variables
+
     
     /**
      * rollingball created with three parameters : the name of the player, the
@@ -55,18 +47,8 @@ public class RollingBall
         this.ballUsedByThePlayer = ballChoosedByThePlayer;
     }
 
-    // TODO (fix) this method should not be declared here but elsewhere
-    /**
-     * method which tests if a ball is on(/in) a segment
-     * @return return a boolean, if yes : the ball is on a segment, 
-     * otherwise it's out of a segment of the map
-     */
-    private boolean intersect()
-    {
-        x1 = this.ballUsedByThePlayer.getMiddlePoint().getX();
-        y1 = this.ballUsedByThePlayer.getMiddlePoint().getY();
-    }
-    
+    // TODO (FIXED) this method should not be declared here but elsewhere
+
     /**
      * set the physical rules of our environment and launch the game
      */
