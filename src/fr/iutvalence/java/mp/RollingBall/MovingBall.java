@@ -27,4 +27,13 @@ public class MovingBall extends Ball
         this.speed = speedOfTheBall;
     }
     
+    /**
+     * method to set up to date the vector
+     * @param componentOfTheVector Point which define the speed of the vector
+     */
+    public void setSpeed(Point componentOfTheVector)
+    {
+        this.speed.setEndingPoint(componentOfTheVector);
+    }
+    
 }
