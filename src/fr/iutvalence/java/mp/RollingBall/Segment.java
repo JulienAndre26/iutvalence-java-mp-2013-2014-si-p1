@@ -1,12 +1,11 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-// TODO (FIXED) it seems easier to consider a segment as defined by 2 points
 /**
- * piece of the physical field
- * the notion of "physical" : if the segment is physical (true), the ball 
- * will not go through the segment, otherwise it will
+ * piece of the physical field the notion of "physical" : if the segment is
+ * physical (true), the ball will not go through the segment, otherwise it will
+ * 
  * @author andrejul
- *
+ * 
  */
 public class Segment
 {
@@ -20,47 +19,54 @@ public class Segment
      */
     private Point endingPoint;
 
-    // TODO (FIXED) is it still useful?
 
     /**
-     * segment created with four defined parameters : a point, a length, 
-     * an angle and a boolean
-     * @param beginningOfTheSegment beginning of the segment
-     * @param endingOfTheSegment length of the segment
-     * @param angleOfTheSegment angle of the segment
-     * @param physicalOrNot boolean which will decide if the segment is 
-     *        physical or not
+     * segment created with four defined parameters : a point, a length, an
+     * angle and a boolean
+     * 
+     * @param beginningOfTheSegment
+     *            beginning of the segment
+     * @param endingOfTheSegment
+     *            length of the segment
+     * @param angleOfTheSegment
+     *            angle of the segment
+     * @param physicalOrNot
+     *            boolean which will decide if the segment is physical or not
      */
     public Segment(Point beginningOfTheSegment, Point endingOfTheSegment)
     {
         this.startingPoint = beginningOfTheSegment;
         this.endingPoint = endingOfTheSegment;
     }
-    
+
     /**
      * method to get the ending point of the segment
+     * 
      * @return Point the ending point of the segment
      */
     public Point getEndingPoint()
     {
         return this.endingPoint;
     }
-    
+
     /**
      * method to set up the ending point of the segment
-     * @param endingPoint the new ending point wanted
+     * 
+     * @param endingPoint
+     *            the new ending point wanted
      */
     public void setEndingPoint(Point endingPoint)
     {
         this.endingPoint = endingPoint;
     }
-    
-    
+
     /**
      * method which tests if a ball is on(/in) a segment
-     * @param currentBall the ball we test
-     * @return return a boolean, if yes : the ball is on a segment, 
-     * otherwise it's out of a segment of the map
+     * 
+     * @param currentBall
+     *            the ball we test
+     * @return return a boolean, if yes : the ball is on a segment, otherwise
+     *         it's out of a segment of the map
      */
     public boolean intersect(Ball currentBall)
     {
@@ -88,13 +94,12 @@ public class Segment
         x3Segment = this.endingPoint.getX();
         y3Segment = this.endingPoint.getY();
 
-        a = (x3Segment - x2Segment)*(x3Segment - x2Segment) + (y3Segment)*(y2Segment);
-        b = 2 * ((x3Segment - x2Segment)*(x2Segment - x1Ball) + 
-                (y3Segment - y2Segment) * (y2Segment - y1Ball));
-        c = x2Segment*x2Segment + y2Segment*y2Segment + x1Ball*x1Ball + 
-                y1Ball*y1Ball - 2*(x2Segment * x1Ball + y2Segment * y1Ball) - r*r;
-        
-        if (b*b - 4*a*c < 0)
+        a = (x3Segment - x2Segment) * (x3Segment - x2Segment) + (y3Segment) * (y2Segment);
+        b = 2 * ((x3Segment - x2Segment) * (x2Segment - x1Ball) + (y3Segment - y2Segment) * (y2Segment - y1Ball));
+        c = x2Segment * x2Segment + y2Segment * y2Segment + x1Ball * x1Ball + y1Ball * y1Ball - 2
+                * (x2Segment * x1Ball + y2Segment * y1Ball) - r * r;
+
+        if (b * b - 4 * a * c < 0)
         {
             isIntersect = false;
         }
@@ -104,4 +109,7 @@ public class Segment
         }
         return isIntersect;
     }
+    
+    // TODO (fix) consider overriding toString to return an ASCII representation of the segment
+    // it can rely on the toString method overridden in Point
 }

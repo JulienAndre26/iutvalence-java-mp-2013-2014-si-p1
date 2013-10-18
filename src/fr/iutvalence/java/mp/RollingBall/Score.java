@@ -1,13 +1,14 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-// TODO (FIXED) fix comment (this class is not supposed to print something)
+// TODO (fix) fix comment (this class is not supposed to make something)
 /**
  * 
  * make the score of the player
+ * 
  * @author andrejul
- *
+ * 
  */
 public class Score
 {
-    
+
 }
