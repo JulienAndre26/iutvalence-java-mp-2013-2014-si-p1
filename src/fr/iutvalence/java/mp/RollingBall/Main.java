@@ -14,20 +14,18 @@ public class Main
      */
     public static void main(String[] args)
     {
-        boolean physicalOrNot = false;
-        Point beginingOfTheSegment = new Point(50,50);
+        Point beginningOfTheSegment = new Point(50,50);
         Point endingOfTheSegment = new Point(50,100);
 
-        Segment segmentWhereTheBallCanBeReleased = new Segment(beginingOfTheSegment, 
-                endingOfTheSegment, physicalOrNot);
+        Segment segmentWhereTheBallCanBeReleased = new Segment(beginningOfTheSegment, 
+                endingOfTheSegment);
         System.out.print("segment de la balle créé\n");
         
-        boolean physicalOrNot1 = true;
-        Point beginingOfTheSegment1 = new Point(0,0);
+        Point beginningOfTheSegment1 = new Point(0,0);
         Point endingOfTheSegment1 = new Point(100,0);
 
         Segment segment1 = new Segment(
-                beginingOfTheSegment1, endingOfTheSegment1, physicalOrNot1);
+                beginningOfTheSegment1, endingOfTheSegment1);
         
         Segment[] segmentsOfTheField = null;
         segmentsOfTheField = new Segment[1];
@@ -36,9 +34,11 @@ public class Main
         
         Map map = new Map(segmentsOfTheField, segmentWhereTheBallCanBeReleased);
 
-        Point centerOfTheBallWanted = beginingOfTheSegment;
+        Point componentOfTheVector = new Point(0,0);
+        Vector speedOfTheBall = new Vector(componentOfTheVector);
+        Point centerOfTheBallWanted = beginningOfTheSegment;
         int radiusOfTheBallWanted = 10;
-        Ball ball = new Ball(radiusOfTheBallWanted, centerOfTheBallWanted);
+        MovingBall ball = new MovingBall(radiusOfTheBallWanted, centerOfTheBallWanted, speedOfTheBall);
         System.out.print("balle créée\n");
 
         String nameOfThePlayerPlaying = "toto";
