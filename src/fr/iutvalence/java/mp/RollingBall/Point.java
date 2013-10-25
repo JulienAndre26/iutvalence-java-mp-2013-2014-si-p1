@@ -52,10 +52,19 @@ public class Point
     public int getY()
     {
         return this.y;
-    }
+    }    
     
-    
-    // TODO (fix) consider overriding toString to return an ASCII representation of the point
+    // TODO (FIXED) consider overriding toString to return an ASCII representation of the point
     // e.g. (x,y)
+    /**
+     * method to get the parameters of the Point to String
+     * 
+     * @return String
+     *              parameters of the Point
+     */
+    public String toString()
+    {
+        return "(" + this.x + "," + this.y + ")";
+    }
 
 }
