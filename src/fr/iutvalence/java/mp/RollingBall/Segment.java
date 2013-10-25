@@ -28,10 +28,6 @@ public class Segment
      *            beginning of the segment
      * @param endingOfTheSegment
      *            length of the segment
-     * @param angleOfTheSegment
-     *            angle of the segment
-     * @param physicalOrNot
-     *            boolean which will decide if the segment is physical or not
      */
     public Segment(Point beginningOfTheSegment, Point endingOfTheSegment)
     {
@@ -109,7 +105,18 @@ public class Segment
         }
         return isIntersect;
     }
-    
-    // TODO (fix) consider overriding toString to return an ASCII representation of the segment
+
+    // TODO (FIXED) consider overriding toString to return an ASCII representation of the segment
     // it can rely on the toString method overridden in Point
+
+    /**
+     * method to get the parameters of the Segment to String
+     * 
+     * @return String
+     *              parameters of the Segment
+     */
+    public String toString()
+    {
+        return "[" + this.startingPoint + "," + this.endingPoint + "]";
+    }
 }
