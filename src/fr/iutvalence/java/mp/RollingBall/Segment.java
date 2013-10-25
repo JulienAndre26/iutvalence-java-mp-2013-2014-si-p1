@@ -1,5 +1,7 @@
 package fr.iutvalence.java.mp.RollingBall;
 
+import java.math.*;
+
 /**
  * piece of the physical field the notion of "physical" : if the segment is
  * physical (true), the ball will not go through the segment, otherwise it will
@@ -35,7 +37,7 @@ public class Segment
         this.endingPoint = endingOfTheSegment;
     }
 
-    
+
     /**
      * method to get the ending point of the segment
      * 
@@ -45,7 +47,7 @@ public class Segment
     {
         return this.startingPoint;
     }
-    
+
     /**
      * method to get the ending point of the segment
      * 
@@ -66,7 +68,7 @@ public class Segment
     {
         this.endingPoint = endingPoint;
     }
-    
+
     /**
      * method to get the middle point of a segment
      * 
@@ -76,9 +78,37 @@ public class Segment
     public Point getMiddlePoint()
     {
         return new Point( ( this.startingPoint.getX() + this.endingPoint.getX() ) / 2, 
-                                                    ( this.startingPoint.getY() + this.endingPoint.getY() ) / 2);
+                ( this.startingPoint.getY() + this.endingPoint.getY() ) / 2);
     }
-    
+
+    /**
+     * method to get the component point which characterize the reacting power
+     * 
+     * @return Point
+     *            the middle Point
+     */
+    public Point getReactionPower(MovingBall movingBall)
+    {
+        double lenghOfTheSegment;
+        
+        double xa;
+        double ya;
+        
+        double xb;
+        double yb;        
+        
+        xa = this.startingPoint.getX();
+        ya = this.startingPoint.getY();
+        
+        xb = this.endingPoint.getX();
+        yb = this.endingPoint.getY();
+        
+        lenghOfTheSegment = Math.sqrt((xb-xa)*(xb-xa)+(yb-ya)*(yb-ya));
+        // Finir la fonction
+        return new Point( ( this.startingPoint.getX() + this.endingPoint.getX() ) / 2, 
+                ( this.startingPoint.getY() + this.endingPoint.getY() ) / 2);
+    }
+
     /**
      * method which tests if a ball is on(/in) a segment
      * 
