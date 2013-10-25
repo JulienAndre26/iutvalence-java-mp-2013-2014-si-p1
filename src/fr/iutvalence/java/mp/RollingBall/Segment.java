@@ -35,6 +35,17 @@ public class Segment
         this.endingPoint = endingOfTheSegment;
     }
 
+    
+    /**
+     * method to get the ending point of the segment
+     * 
+     * @return Point the ending point of the segment
+     */
+    public Point getStartingPoint()
+    {
+        return this.startingPoint;
+    }
+    
     /**
      * method to get the ending point of the segment
      * 
@@ -55,7 +66,19 @@ public class Segment
     {
         this.endingPoint = endingPoint;
     }
-
+    
+    /**
+     * method to get the middle point of a segment
+     * 
+     * @return Point
+     *            the middle Point
+     */
+    public Point getMiddlePoint()
+    {
+        return new Point( ( this.startingPoint.getX() + this.endingPoint.getX() ) / 2, 
+                                                    ( this.startingPoint.getY() + this.endingPoint.getY() ) / 2);
+    }
+    
     /**
      * method which tests if a ball is on(/in) a segment
      * 
