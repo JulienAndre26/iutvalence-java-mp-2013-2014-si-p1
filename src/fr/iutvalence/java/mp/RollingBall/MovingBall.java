@@ -39,7 +39,7 @@ public class MovingBall extends Ball
      */
     public void setSpeed(Point componentOfTheVector)
     {
-        this.speedVector.setEndingPoint(componentOfTheVector);
+        this.speedVector.getEndingPoint().addPoint(componentOfTheVector);
     }
 
 }
