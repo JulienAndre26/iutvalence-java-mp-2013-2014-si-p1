@@ -36,7 +36,8 @@ public class Ball
     /**
      * method to get the center of the ball
      * 
-     * @return Point the center of the ball
+     * @return Point 
+     *              the center of the ball
      */
     public Point getMiddlePoint()
     {
@@ -46,14 +47,26 @@ public class Ball
     /**
      * method to get the radius of the ball
      * 
-     * @return Integer radius of the ball
+     * @return Integer 
+     *              radius of the ball
      */
     public int getRadius()
     {
         return this.radius;
     }
-    
-    // TODO (fix) consider overriding toString to return an ASCII representation of the ball
+
+    // TODO (FIXED) consider overriding toString to return an ASCII representation of the ball
     // e.g. [(x,y), r]
     // it can rely on the toString method overridden in Point
+    /**
+     * method to get the parameters of the Ball to String
+     * 
+     * @return String
+     *              parameters of the Ball
+     */
+    public String toString()
+    {
+
+        return "["+this.middlePoint+","+ this.radius+"]";
+    }
 }
