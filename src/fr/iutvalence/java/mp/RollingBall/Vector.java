@@ -20,9 +20,19 @@ public class Vector extends Segment
     {
         super(new Point(0, 0), componentOfTheVector);
     }
-    
-    
-    // TODO (fix) consider overriding toString to return an ASCII representation of the vector
+
+    // TODO (FIXED) consider overriding toString to return an ASCII representation of the vector
     // it can rely on the toString method overridden in Segment
+
+    /**
+     * super method to get the parameters of the Vector to String
+     * 
+     * @return String
+     *              parameters of the Vector
+     */
+    public String toString()
+    {
+        return "" + super.toString();
+    }
 
 }
