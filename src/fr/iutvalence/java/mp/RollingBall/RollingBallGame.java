@@ -56,9 +56,11 @@ public class RollingBallGame
         boolean youCanPlay = true;
         Point gravityPower = new Point(0, -10);
         int time;
-        
+
         // TODO (FIXED) rename local variable (more explicit)
         int indiceOfTheSegmentsField;
+
+
 
         time = 0;
         while (youCanPlay)
@@ -75,7 +77,11 @@ public class RollingBallGame
             }
             else
             {
-
+                // faire l'attribution après avoir fini la fonction dans segment
+                Point forceReaction = new Point(0,0);
+                
+                this.ballUsedByThePlayer.setSpeed(gravityPower);
+                this.ballUsedByThePlayer.setSpeed(forceReaction);
             }
         }
     }
