@@ -55,21 +55,21 @@ public class RollingBallGame
     {
         boolean youCanPlay = true;
         Point gravityPower = new Point(0, -10);
-        int t;
+        int time;
         
-        // TODO (fix) rename local variable (more explicit)
-        int i;
+        // TODO (FIXED) rename local variable (more explicit)
+        int indiceOfTheSegmentsField;
 
-        t = 0;
+        time = 0;
         while (youCanPlay)
         {
-            i = 0;
-            while (!(this.mapUsedByThePlayer.getSegmentsOfTheField()[i].intersect(this.ballUsedByThePlayer))
-                    && i < this.mapUsedByThePlayer.getSegmentsOfTheField().length)
+            indiceOfTheSegmentsField = 0;
+            while (!(this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].intersect(this.ballUsedByThePlayer))
+                    && indiceOfTheSegmentsField < this.mapUsedByThePlayer.getSegmentsOfTheField().length)
             {
-                i++;
+                indiceOfTheSegmentsField++;
             }
-            if (i == this.mapUsedByThePlayer.getSegmentsOfTheField().length)
+            if (indiceOfTheSegmentsField == this.mapUsedByThePlayer.getSegmentsOfTheField().length)
             {
                 this.ballUsedByThePlayer.setSpeed(gravityPower);
             }
