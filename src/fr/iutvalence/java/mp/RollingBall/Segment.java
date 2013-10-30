@@ -1,7 +1,7 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-import java.math.*;
 
+// TODO (fix) rewrite comment (not really understandable)
 /**
  * piece of the physical field the notion of "physical" : if the segment is
  * physical (true), the ball will not go through the segment, otherwise it will
@@ -21,7 +21,7 @@ public class Segment
      */
     private Point endingPoint;
 
-
+    // TODO (fix) fix comment (obsolete)
     /**
      * segment created with four defined parameters : a point, a length, an
      * angle and a boolean
@@ -134,8 +134,8 @@ public class Segment
         int y3Segment;
 
         r = currentBall.getRadius();
-        x1Ball = currentBall.getMiddlePoint().getX();
-        y1Ball = currentBall.getMiddlePoint().getY();
+        x1Ball = currentBall.getCenter().getX();
+        y1Ball = currentBall.getCenter().getY();
 
         x2Segment = this.startingPoint.getX();
         y2Segment = this.startingPoint.getY();
@@ -159,14 +159,10 @@ public class Segment
         return isIntersect;
     }
 
-    // TODO (FIXED) consider overriding toString to return an ASCII representation of the segment
-    // it can rely on the toString method overridden in Point
-
+    // TODO (fix) finish writing comment
     /**
-     * method to get the parameters of the Segment to String
-     * 
-     * @return String
-     *              parameters of the Segment
+     * Returns an ASCII representation of the segment as ...
+     * @see java.lang.Object#toString()
      */
     public String toString()
     {

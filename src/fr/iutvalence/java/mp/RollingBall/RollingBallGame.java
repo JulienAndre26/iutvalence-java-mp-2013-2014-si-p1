@@ -7,6 +7,7 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  * 
  */
+//TODO (fix) this class has a duplicate (RollingBall)
 public class RollingBallGame
 {
     /**
@@ -24,10 +25,12 @@ public class RollingBallGame
      */
     private MovingBall ballUsedByThePlayer;
 
+    
+    // TODO (fix) looks like a local variable
     /**
      * the score of the player
      */
-    private Score scoreOfThePlayer;
+    private int scoreOfThePlayer;
 
 
     /**

@@ -12,12 +12,13 @@ public class Ball
     /**
      * radius of the ball
      */
+    // TODO (fix) maybe double should be used instead of int
     private int radius;
 
     /**
      * center of the ball
      */
-    private Point middlePoint;
+    private Point center;
 
     /**
      * ball created with two defined parameters : a radius and a center
@@ -30,7 +31,7 @@ public class Ball
     public Ball(int radiusOfTheBallWanted, Point centerOfTheBallWanted)
     {
         this.radius = radiusOfTheBallWanted;
-        this.middlePoint = centerOfTheBallWanted;
+        this.center = centerOfTheBallWanted;
     }
 
     /**
@@ -39,9 +40,9 @@ public class Ball
      * @return Point 
      *              the center of the ball
      */
-    public Point getMiddlePoint()
+    public Point getCenter()
     {
-        return this.middlePoint;
+        return this.center;
     }
 
     /**
@@ -55,18 +56,15 @@ public class Ball
         return this.radius;
     }
 
-    // TODO (FIXED) consider overriding toString to return an ASCII representation of the ball
-    // e.g. [(x,y), r]
-    // it can rely on the toString method overridden in Point
+
+    // TODO (fix) finish writing comment
     /**
-     * method to get the parameters of the Ball to String
-     * 
-     * @return String
-     *              parameters of the Ball
+     * Returns an ASCII representation of the ball as ...
+     * @see java.lang.Object#toString()
      */
     public String toString()
     {
 
-        return "["+this.middlePoint+","+ this.radius+"]";
+        return "["+this.center+","+ this.radius+"]";
     }
 }

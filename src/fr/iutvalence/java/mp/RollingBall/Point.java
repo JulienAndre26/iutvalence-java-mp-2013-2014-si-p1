@@ -7,6 +7,7 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  * 
  */
+// TODO (think about it) maybe it should be better to consider coordinates as doubles
 public class Point
 {
 
@@ -67,13 +68,11 @@ public class Point
         return new Point(this.x+point.x,this.y+point.y);
     }
     
-    // TODO (FIXED) consider overriding toString to return an ASCII representation of the point
-    // e.g. (x,y)
+    // TODO (fix) finish writing comment
+
     /**
-     * method to get the parameters of the Point to String
-     * 
-     * @return String
-     *              parameters of the Point
+     * Returns an ASCII representation of the point as ...
+     * @see java.lang.Object#toString()
      */
     public String toString()
     {

@@ -37,6 +37,7 @@ public class MovingBall extends Ball
      * @param componentOfTheVector
      *            Point which define the speed of the vector
      */
+    // TODO (fix) rename this method and use relevant parameter
     public void setSpeed(Point componentOfTheVector)
     {
         this.speedVector.getEndingPoint().addPoint(componentOfTheVector);

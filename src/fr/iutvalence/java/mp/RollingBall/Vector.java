@@ -1,5 +1,6 @@
 package fr.iutvalence.java.mp.RollingBall;
 
+// TODO (fix) detail comment
 /**
  * the Vector extends the Segment class and it is used to set up the physic
  * rules in the game
@@ -21,14 +22,10 @@ public class Vector extends Segment
         super(new Point(0, 0), componentOfTheVector);
     }
 
-    // TODO (FIXED) consider overriding toString to return an ASCII representation of the vector
-    // it can rely on the toString method overridden in Segment
-
+    // TODO (fix) finish writing comment
     /**
-     * super method to get the parameters of the Vector to String
-     * 
-     * @return String
-     *              parameters of the Vector
+     * Returns an ASCII representation of the vector as ...
+     * @see java.lang.Object#toString()
      */
     public String toString()
     {
