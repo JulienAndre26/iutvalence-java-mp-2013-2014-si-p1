@@ -1,10 +1,9 @@
 package fr.iutvalence.java.mp.RollingBall;
 
 
-// TODO (fix) rewrite comment (not really understandable)
+// TODO (FIXED) rewrite comment (not really understandable)
 /**
- * piece of the physical field the notion of "physical" : if the segment is
- * physical (true), the ball will not go through the segment, otherwise it will
+ * a segment is a piece of the game's field.
  * 
  * @author andrejul
  * 
@@ -21,10 +20,9 @@ public class Segment
      */
     private Point endingPoint;
 
-    // TODO (fix) fix comment (obsolete)
+    // TODO (FIXED) fix comment (obsolete)
     /**
-     * segment created with four defined parameters : a point, a length, an
-     * angle and a boolean
+     * a segment is created with two Points
      * 
      * @param beginningOfTheSegment
      *            beginning of the segment
@@ -90,19 +88,19 @@ public class Segment
     public Point getReactionPower(MovingBall movingBall)
     {
         double lenghOfTheSegment;
-        
+
         double xa;
         double ya;
-        
+
         double xb;
         double yb;        
-        
+
         xa = this.startingPoint.getX();
         ya = this.startingPoint.getY();
-        
+
         xb = this.endingPoint.getX();
         yb = this.endingPoint.getY();
-        
+
         lenghOfTheSegment = Math.sqrt((xb-xa)*(xb-xa)+(yb-ya)*(yb-ya));
         // Finir la fonction
         return new Point( ( this.startingPoint.getX() + this.endingPoint.getX() ) / 2, 
@@ -120,18 +118,18 @@ public class Segment
     public boolean intersect(Ball currentBall)
     {
         boolean isIntersect;
-        int a;
-        int b;
-        int c;
-        int r;
-        int x1Ball;
-        int y1Ball;
+        double a;
+        double b;
+        double c;
+        double r;
+        double x1Ball;
+        double y1Ball;
 
-        int x2Segment;
-        int y2Segment;
+        double x2Segment;
+        double y2Segment;
 
-        int x3Segment;
-        int y3Segment;
+        double x3Segment;
+        double y3Segment;
 
         r = currentBall.getRadius();
         x1Ball = currentBall.getCenter().getX();
@@ -159,13 +157,14 @@ public class Segment
         return isIntersect;
     }
 
-    // TODO (fix) finish writing comment
+    // TODO (FIXED) finish writing comment
     /**
-     * Returns an ASCII representation of the segment as ...
-     * @see java.lang.Object#toString()
+     * Returns an ASCII representation of the segment as [ starting point of the segment, ending point of the segment ]
+     * @return String
+     *              the ASCII representation of the segment
      */
     public String toString()
     {
-        return "[" + this.startingPoint + "," + this.endingPoint + "]";
+        return "[ " + this.startingPoint + ", " + this.endingPoint + " ]";
     }
 }
