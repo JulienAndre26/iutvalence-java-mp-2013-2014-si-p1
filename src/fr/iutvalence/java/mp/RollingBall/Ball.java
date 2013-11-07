@@ -12,8 +12,8 @@ public class Ball
     /**
      * radius of the ball
      */
-    // TODO (fix) maybe double should be used instead of int
-    private int radius;
+    // TODO (FIXED) maybe double should be used instead of int
+    private double radius;
 
     /**
      * center of the ball
@@ -28,7 +28,7 @@ public class Ball
      * @param centerOfTheBallWanted
      *            center of the ball
      */
-    public Ball(int radiusOfTheBallWanted, Point centerOfTheBallWanted)
+    public Ball(double radiusOfTheBallWanted, Point centerOfTheBallWanted)
     {
         this.radius = radiusOfTheBallWanted;
         this.center = centerOfTheBallWanted;
@@ -51,20 +51,20 @@ public class Ball
      * @return Integer 
      *              radius of the ball
      */
-    public int getRadius()
+    public double getRadius()
     {
         return this.radius;
     }
 
-
-    // TODO (fix) finish writing comment
+    // TODO (FIXED) finish writing comment
     /**
-     * Returns an ASCII representation of the ball as ...
-     * @see java.lang.Object#toString()
+     * Returns an ASCII representation of the ball as : [ center of the ball, radius of the ball ]
+     * @return String
+     *              the ASCII representation of the ball
      */
     public String toString()
     {
 
-        return "["+this.center+","+ this.radius+"]";
+        return "[ "+this.center+", "+ this.radius+" ]";
     }
 }
