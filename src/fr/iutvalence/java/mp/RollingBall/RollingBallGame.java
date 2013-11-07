@@ -7,7 +7,7 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  * 
  */
-//TODO (fix) this class has a duplicate (RollingBall)
+//TODO (FIXED) this class has a duplicate (RollingBall)
 public class RollingBallGame
 {
     /**
@@ -26,12 +26,7 @@ public class RollingBallGame
     private MovingBall ballUsedByThePlayer;
 
     
-    // TODO (fix) looks like a local variable
-    /**
-     * the score of the player
-     */
-    private int scoreOfThePlayer;
-
+    // TODO (FIXED) looks like a local variable
 
     /**
      * rollingball game created with three parameters : the name of the player, the
@@ -59,11 +54,10 @@ public class RollingBallGame
         boolean youCanPlay = true;
         Point gravityPower = new Point(0, -10);
         int time;
-
+        int scoreOfThePlayer;
+        
         // TODO (FIXED) rename local variable (more explicit)
         int indiceOfTheSegmentsField;
-
-
 
         time = 0;
         while (youCanPlay)
@@ -76,15 +70,15 @@ public class RollingBallGame
             }
             if (indiceOfTheSegmentsField == this.mapUsedByThePlayer.getSegmentsOfTheField().length)
             {
-                this.ballUsedByThePlayer.setSpeed(gravityPower);
+                this.ballUsedByThePlayer.setNewSpeed(gravityPower);
             }
             else
             {
                 // faire l'attribution après avoir fini la fonction dans segment
                 Point forceReaction = new Point(0,0);
                 
-                this.ballUsedByThePlayer.setSpeed(gravityPower);
-                this.ballUsedByThePlayer.setSpeed(forceReaction);
+                this.ballUsedByThePlayer.setNewSpeed(gravityPower);
+                this.ballUsedByThePlayer.setNewSpeed(forceReaction);
             }
         }
     }
