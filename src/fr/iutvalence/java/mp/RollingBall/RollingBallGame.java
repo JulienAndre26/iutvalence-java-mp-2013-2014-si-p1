@@ -25,7 +25,7 @@ public class RollingBallGame
      */
     private MovingBall ballUsedByThePlayer;
 
-    
+
     // TODO (FIXED) looks like a local variable
 
     /**
@@ -55,13 +55,14 @@ public class RollingBallGame
         Point gravityPower = new Point(0, -10);
         int time;
         int scoreOfThePlayer;
-        
+
         // TODO (FIXED) rename local variable (more explicit)
         int indiceOfTheSegmentsField;
 
         time = 0;
         while (youCanPlay)
         {
+            // Control of the intersection of the ball with the game's field 
             indiceOfTheSegmentsField = 0;
             while (!(this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].intersect(this.ballUsedByThePlayer))
                     && indiceOfTheSegmentsField < this.mapUsedByThePlayer.getSegmentsOfTheField().length)
@@ -74,11 +75,21 @@ public class RollingBallGame
             }
             else
             {
-                // faire l'attribution après avoir fini la fonction dans segment
-                Point forceReaction = new Point(0,0);
-                
+                Point forceReaction = this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].getReactionPower(this.ballUsedByThePlayer);                
                 this.ballUsedByThePlayer.setNewSpeed(gravityPower);
                 this.ballUsedByThePlayer.setNewSpeed(forceReaction);
+            }
+
+            System.out.println(this.ballUsedByThePlayer);
+
+            // Control of the play's time
+            if (time == 100)
+            {
+                youCanPlay = false;
+            }
+            else
+            {
+                time++;
             }
         }
     }
