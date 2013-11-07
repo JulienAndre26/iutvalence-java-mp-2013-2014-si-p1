@@ -35,7 +35,6 @@ public class Segment
         this.endingPoint = endingOfTheSegment;
     }
 
-
     /**
      * method to get the ending point of the segment
      * 
@@ -80,32 +79,64 @@ public class Segment
     }
 
     /**
+     * method to get the length of a segment
+     * @return Double
+     *              the length of a segment
+     */
+    public Double getLength()
+    {
+        double l;
+        l = Math.sqrt( ( this.endingPoint.getX() - this.startingPoint.getX() ) * ( this.endingPoint.getX() - this.startingPoint.getX() )
+                + ( this.endingPoint.getY() - this.startingPoint.getY() ) * ( this.endingPoint.getY() - this.startingPoint.getY() ) );
+        return l;
+    }
+
+    /**
      * method to get the component point which characterize the reacting power
      * 
      * @return Point
-     *            the middle Point
+     *            the component point of the reacting power
      */
     public Point getReactionPower(MovingBall movingBall)
     {
-        double lenghOfTheSegment;
+        Point middlePoint = this.getMiddlePoint();
+        double l = this.getLength();
+        double x;
+        double y;
+        double B;
 
-        double xa;
-        double ya;
+        if ( this.endingPoint.getY() == this.startingPoint.getY() )
+        {
+            if ( this.endingPoint.getX() > this.startingPoint.getX() )
+            {
+                return new Point( middlePoint.getX()-l, middlePoint.getY() );
+            }
+            else if ( this.endingPoint.getX() < this.startingPoint.getX() )
+            {
+                return new Point( middlePoint.getX()+l, middlePoint.getY() );
+            }
+        }
 
-        double xb;
-        double yb;        
+        if ( this.endingPoint.getX() == this.startingPoint.getX() )
+        {
+            if ( this.endingPoint.getY() > this.startingPoint.getY() )
+            {
+                return new Point( middlePoint.getX(), middlePoint.getY()+l );
+            }
+            else if ( this.endingPoint.getY() < this.startingPoint.getY() )
+            {
+                return new Point( middlePoint.getX(), middlePoint.getY()-l );
+            }
+        }
 
-        xa = this.startingPoint.getX();
-        ya = this.startingPoint.getY();
+        B = Math.atan( ( this.endingPoint.getY() - this.startingPoint.getY() ) / ( this.endingPoint.getX() - this.startingPoint.getX() ) ) + Math.PI/2;
 
-        xb = this.endingPoint.getX();
-        yb = this.endingPoint.getY();
+        x = l * Math.cos(B) + middlePoint.getX();
+        y = l * Math.sin(B) + middlePoint.getY();
 
-        lenghOfTheSegment = Math.sqrt((xb-xa)*(xb-xa)+(yb-ya)*(yb-ya));
-        // Finir la fonction
-        return new Point( ( this.startingPoint.getX() + this.endingPoint.getX() ) / 2, 
-                ( this.startingPoint.getY() + this.endingPoint.getY() ) / 2);
+        return new Point ( x, y );
     }
+
 
     /**
      * method which tests if a ball is on(/in) a segment
