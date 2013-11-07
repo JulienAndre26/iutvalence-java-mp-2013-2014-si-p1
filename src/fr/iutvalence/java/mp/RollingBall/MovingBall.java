@@ -25,7 +25,7 @@ public class MovingBall extends Ball
      * @param speedOfTheBall
      *            speed of the ball
      */
-    public MovingBall(int radiusOfTheBallWanted, Point centerOfTheBallWanted, Vector speedOfTheBall)
+    public MovingBall(double radiusOfTheBallWanted, Point centerOfTheBallWanted, Vector speedOfTheBall)
     {
         super(radiusOfTheBallWanted, centerOfTheBallWanted);
         this.speedVector = speedOfTheBall;
@@ -42,5 +42,14 @@ public class MovingBall extends Ball
     {
         this.speedVector.getEndingPoint().addPoint(pointToAddToTheVector);
     }
-
+    
+    /**
+     * Returns an ASCII representation of the movingball as [ the ASCII representation of a ball, the speed of the ball ]
+     * @return String
+     *              the ASCII representation of the movingball
+     */
+    public String toString()
+    {
+        return "[ " + super.toString() + ", " + this.speedVector.toString() + " ]";
+    }
 }
