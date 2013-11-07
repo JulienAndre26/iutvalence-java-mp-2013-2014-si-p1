@@ -34,13 +34,13 @@ public class MovingBall extends Ball
     /**
      * method to set up to date the vector
      * 
-     * @param componentOfTheVector
+     * @param pointToAddToTheVector
      *            Point which define the speed of the vector
      */
-    // TODO (fix) rename this method and use relevant parameter
-    public void setSpeed(Point componentOfTheVector)
+    // TODO (FIXED) rename this method and use relevant parameter
+    public void setNewSpeed(Point pointToAddToTheVector)
     {
-        this.speedVector.getEndingPoint().addPoint(componentOfTheVector);
+        this.speedVector.getEndingPoint().addPoint(pointToAddToTheVector);
     }
 
 }
