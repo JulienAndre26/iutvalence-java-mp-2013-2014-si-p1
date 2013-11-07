@@ -68,6 +68,33 @@ public class Point
         return new Point(this.x+point.x,this.y+point.y);
     }
     
+    /**
+     * method equals for the point class.
+     * this method returns true if points are equals, otherwise it returns false.
+     * @param o an object
+     * @return boolean
+     */
+    public boolean equals(Object o)
+    {
+        if ( o == this ) 
+        {
+            return true;
+        }
+       
+        if ( o == null )
+        {
+            return false;
+        }
+        
+        if ( !( o instanceof Point ) )
+        {
+            return false;
+        }
+        
+        Point temp = (Point) o;
+        return temp.getX() == this.x && temp.getY() == this.y;
+        
+    }
     // TODO (FIXED) finish writing comment
 
     /**
