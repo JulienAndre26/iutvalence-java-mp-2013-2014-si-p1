@@ -7,19 +7,19 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  * 
  */
-// TODO (think about it) maybe it should be better to consider coordinates as doubles
+// TODO (FIXED) maybe it should be better to consider coordinates as doubles
 public class Point
 {
 
     /**
      * abscissa of the point
      */
-    private int x;
+    private double x;
 
     /**
      * ordered of the point
      */
-    private int y;
+    private double y;
 
     /**
      * point created with two defined integers
@@ -29,7 +29,7 @@ public class Point
      * @param y
      *            ordered of the point
      */
-    public Point(int x, int y)
+    public Point(double x, double y)
     {
         this.x = x;
         this.y = y;
@@ -40,7 +40,7 @@ public class Point
      * 
      * @return integer the abscissa of the point
      */
-    public int getX()
+    public double getX()
     {
         return this.x;
     }
@@ -50,7 +50,7 @@ public class Point
      * 
      * @return integer the ordered of the point
      */
-    public int getY()
+    public double getY()
     {
         return this.y;
     }    
@@ -68,15 +68,16 @@ public class Point
         return new Point(this.x+point.x,this.y+point.y);
     }
     
-    // TODO (fix) finish writing comment
+    // TODO (FIXED) finish writing comment
 
     /**
-     * Returns an ASCII representation of the point as ...
-     * @see java.lang.Object#toString()
+     * Returns an ASCII representation of the point as ( the abscissa of the point, the ordered of the point )
+     * @return String
+     *              the ASCII representation of the vector
      */
     public String toString()
     {
-        return "(" + this.x + "," + this.y + ")";
+        return "( " + this.x + ", " + this.y + " )";
     }
 
 }
