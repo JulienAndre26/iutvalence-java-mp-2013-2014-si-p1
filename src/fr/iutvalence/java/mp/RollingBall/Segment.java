@@ -21,6 +21,7 @@ public class Segment
     private Point endingPoint;
 
     // TODO (FIXED) fix comment (obsolete)
+
     /**
      * a segment is created with two Points
      * 
@@ -28,11 +29,20 @@ public class Segment
      *            beginning of the segment
      * @param endingOfTheSegment
      *            length of the segment
+     * @throws SamePointException
+     *            if beginningOfTheSegment and endingOfTheSegment are equals
      */
-    public Segment(Point beginningOfTheSegment, Point endingOfTheSegment)
+    public Segment(Point beginningOfTheSegment, Point endingOfTheSegment) throws SamePointException
     {
-        this.startingPoint = beginningOfTheSegment;
-        this.endingPoint = endingOfTheSegment;
+        if ( beginningOfTheSegment.equals(endingOfTheSegment) )
+        {
+            throw new SamePointException();
+        }
+        else
+        {
+            this.startingPoint = beginningOfTheSegment;
+            this.endingPoint = endingOfTheSegment;
+        }
     }
 
     /**
