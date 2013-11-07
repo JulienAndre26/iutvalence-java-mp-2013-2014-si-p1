@@ -17,8 +17,10 @@ public class Vector extends Segment
      * @param componentOfTheVector
      *            second point of the vector which will set up the power of the
      *            vector
+     * @throws SamePointException 
+     *            if the two points of the vector are equals
      */
-    public Vector(Point componentOfTheVector)
+    public Vector(Point componentOfTheVector) throws SamePointException
     {
         super(new Point(0, 0), componentOfTheVector);
     }
