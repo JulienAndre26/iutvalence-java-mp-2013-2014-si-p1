@@ -43,8 +43,8 @@ public class MovingBall extends Ball
      */
     public Point nextPositionOfTheBall()
     {
-        Point temp = new Point( ( this.speedVector.getEndingPoint().getX()/DISPLAY_FREQUENCY ) + this.getCenter().getX(), 
-                ( this.speedVector.getEndingPoint().getY()/DISPLAY_FREQUENCY ) + this.getCenter().getY() );
+        Point temp = new Point( ( this.speedVector.getX()/DISPLAY_FREQUENCY ) + this.getCenter().getX(), 
+                ( this.speedVector.getY()/DISPLAY_FREQUENCY ) + this.getCenter().getY() );
         return temp;
     }
     
@@ -68,7 +68,7 @@ public class MovingBall extends Ball
     // TODO (FIXED) rename this method and use relevant parameter
     public void setNewSpeed(Point pointToAddToTheVector)
     {
-        this.speedVector.getEndingPoint().addPoint(pointToAddToTheVector);
+        this.speedVector.addPoint(pointToAddToTheVector);
     }
     
     /**
@@ -78,6 +78,6 @@ public class MovingBall extends Ball
      */
     public String toString()
     {
-        return "[ " + super.toString() + ", " + this.speedVector.toString() + " ]";
+        return "MB[ " + super.toString() + ", " + this.speedVector.toString() + " ]";
     }
 }
