@@ -47,6 +47,18 @@ public class MovingBall extends Ball
                 this.speedVector.getEndingPoint().getY()/DISPLAY_FREQUENCY);
         return temp;
     }
+    
+    /**
+     * method to get the speedVector of the ball
+     * 
+     * @return Point 
+     *              the speedVector of the ball
+     */
+    public Vector getSpeedVector()
+    {
+        return this.speedVector;
+    }
+    
     /**
      * method to set up to date the vector
      * 
