@@ -206,6 +206,6 @@ public class Segment
      */
     public String toString()
     {
-        return "[ " + this.startingPoint + ", " + this.endingPoint + " ]";
+        return "S[ " + this.startingPoint + ", " + this.endingPoint + " ]";
     }
 }
