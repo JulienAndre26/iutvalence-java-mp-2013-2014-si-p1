@@ -53,35 +53,37 @@ public class RollingBallGame
     {
         boolean youCanPlay = true;
         Point gravityPower = new Point(0, -10);
-        double time;
+        double time = 0;
         double scoreOfThePlayer = 0;
         System.out.println("welcome " + this.nameOfThePlayer + " !!");
 
         // TODO (FIXED) rename local variable (more explicit)
         int indiceOfTheSegmentsField;
-        time = 0;
-        
+
         while (youCanPlay)
         {
             // Control of the intersection of the ball with the game's field 
             indiceOfTheSegmentsField = 0;
-            while (!(this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].intersect(this.ballUsedByThePlayer))
-                    && indiceOfTheSegmentsField < this.mapUsedByThePlayer.getSegmentsOfTheField().length)
+            while ( indiceOfTheSegmentsField < this.mapUsedByThePlayer.getSegmentsOfTheField().length && 
+                    !( this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].intersect(this.ballUsedByThePlayer) ) )
             {
                 indiceOfTheSegmentsField++;
             }
             if (indiceOfTheSegmentsField == this.mapUsedByThePlayer.getSegmentsOfTheField().length)
             {
+                System.out.println("vole petite baballe !");
                 this.ballUsedByThePlayer.setNewSpeed(gravityPower);
             }
             else
             {
-                Point forceReaction = this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].getReactionPower(this.ballUsedByThePlayer);                
+                System.out.println("stop ! tu touches !");
+                Point forceReaction = this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].getReactionPower(this.ballUsedByThePlayer); 
+                System.out.println("R " + this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].getReactionPower(this.ballUsedByThePlayer));               
                 this.ballUsedByThePlayer.setNewSpeed(gravityPower);
                 this.ballUsedByThePlayer.setNewSpeed(forceReaction);
             }
 
-            System.out.println("Ball : " + this.ballUsedByThePlayer);
+            System.out.println(this.ballUsedByThePlayer);
 
             // Control of the play's time
             if (time == 100)
@@ -92,12 +94,12 @@ public class RollingBallGame
             {
                 MovingBall nextBall = new MovingBall( this.ballUsedByThePlayer.getRadius(), 
                         this.ballUsedByThePlayer.nextPositionOfTheBall(), this.ballUsedByThePlayer.getSpeedVector() );
-                
+
                 scoreOfThePlayer = scoreOfThePlayer + this.ballUsedByThePlayer.nextPositionOfTheBall().getX() - this.ballUsedByThePlayer.getCenter().getX();
                 this.ballUsedByThePlayer = nextBall;
-                
+
                 System.out.println("Your current score " + this.nameOfThePlayer + " : " + scoreOfThePlayer + " !!");
-                
+
                 time++;
             }
         }
