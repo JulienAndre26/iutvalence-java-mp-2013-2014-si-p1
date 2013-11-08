@@ -43,8 +43,8 @@ public class MovingBall extends Ball
      */
     public Point nextPositionOfTheBall()
     {
-        Point temp = new Point(this.speedVector.getEndingPoint().getX()/DISPLAY_FREQUENCY, 
-                this.speedVector.getEndingPoint().getY()/DISPLAY_FREQUENCY);
+        Point temp = new Point( ( this.speedVector.getEndingPoint().getX()/DISPLAY_FREQUENCY ) + this.getCenter().getX(), 
+                ( this.speedVector.getEndingPoint().getY()/DISPLAY_FREQUENCY ) + this.getCenter().getY() );
         return temp;
     }
     
