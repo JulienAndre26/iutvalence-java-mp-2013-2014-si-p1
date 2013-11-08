@@ -65,6 +65,6 @@ public class Ball
     public String toString()
     {
 
-        return "[ "+this.center+", "+ this.radius+" ]";
+        return "B[ "+this.center+", "+ this.radius+" ]";
     }
 }
