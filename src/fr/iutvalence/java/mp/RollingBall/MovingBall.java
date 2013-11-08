@@ -10,6 +10,11 @@ public class MovingBall extends Ball
 {
 
     /**
+     * display's frequency of the ball
+     */
+    public final static double DISPLAY_FREQUENCY = 60;
+    
+    /**
      * speed vector of the MovingBall
      */
     private Vector speedVector;
@@ -31,6 +36,17 @@ public class MovingBall extends Ball
         this.speedVector = speedOfTheBall;
     }
 
+    /**
+     * method to get the next position of the ball at a frequency given
+     * @return Point
+     *              the next center of the ball
+     */
+    public Point nextPositionOfTheBall()
+    {
+        Point temp = new Point(this.speedVector.getEndingPoint().getX()/DISPLAY_FREQUENCY, 
+                this.speedVector.getEndingPoint().getY()/DISPLAY_FREQUENCY);
+        return temp;
+    }
     /**
      * method to set up to date the vector
      * 
