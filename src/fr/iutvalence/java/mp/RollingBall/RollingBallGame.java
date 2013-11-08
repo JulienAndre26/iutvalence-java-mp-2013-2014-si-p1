@@ -53,13 +53,14 @@ public class RollingBallGame
     {
         boolean youCanPlay = true;
         Point gravityPower = new Point(0, -10);
-        int time;
-        int scoreOfThePlayer;
+        double time;
+        double scoreOfThePlayer = 0;
+        System.out.println("welcome " + this.nameOfThePlayer + " !!");
 
         // TODO (FIXED) rename local variable (more explicit)
         int indiceOfTheSegmentsField;
-
         time = 0;
+        
         while (youCanPlay)
         {
             // Control of the intersection of the ball with the game's field 
@@ -80,7 +81,7 @@ public class RollingBallGame
                 this.ballUsedByThePlayer.setNewSpeed(forceReaction);
             }
 
-            System.out.println(this.ballUsedByThePlayer);
+            System.out.println("Ball : " + this.ballUsedByThePlayer);
 
             // Control of the play's time
             if (time == 100)
@@ -89,6 +90,14 @@ public class RollingBallGame
             }
             else
             {
+                MovingBall nextBall = new MovingBall( this.ballUsedByThePlayer.getRadius(), 
+                        this.ballUsedByThePlayer.nextPositionOfTheBall(), this.ballUsedByThePlayer.getSpeedVector() );
+                
+                scoreOfThePlayer = scoreOfThePlayer + this.ballUsedByThePlayer.nextPositionOfTheBall().getX() - this.ballUsedByThePlayer.getCenter().getX();
+                this.ballUsedByThePlayer = nextBall;
+                
+                System.out.println("Your current score " + this.nameOfThePlayer + " : " + scoreOfThePlayer + " !!");
+                
                 time++;
             }
         }
