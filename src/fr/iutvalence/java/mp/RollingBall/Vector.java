@@ -2,38 +2,50 @@ package fr.iutvalence.java.mp.RollingBall;
 
 // TODO (FIXED) detail comment
 /**
- * the Vector extends the Segment class and it is used to set up the physic
+ * the Vector extends the Point class and it is used to set up the physic
  * rules in the game. 
  * The Vector is the thing we will use to move an object on our map.
  * 
  * @author andrejul
  * 
  */
-public class Vector extends Segment
+public class Vector extends Point
 {
+
     /**
      * Vector created with the component of the vector
-     * 
-     * @param componentOfTheVector
-     *            second point of the vector which will set up the power of the
-     *            vector
-     * @throws SamePointException 
-     *            if the two points of the vector are equals
+     * @param x
+     *         abscissa of the component of the vector
+     * @param y
+     *         ordered of the component of the vector
      */
-    public Vector(Point componentOfTheVector) throws SamePointException
+    public Vector(double x, double y)
     {
-        super(new Point(0, 0), componentOfTheVector);
+        super(x, y);
     }
-
+    
+    /**
+     * method to add two points
+     * 
+     * @param point
+     *              the Point we want to add to the current Point
+     * @return Point
+     *              the resulting Point
+     */
+    public Vector addPoint(Point point)
+    {
+        return new Vector( this.getX() + point.getX(), this.getY() + point.getY() );
+    }
+    
     // TODO (FIXED) finish writing comment
     /**
-     * Returns an ASCII representation of the vector as the ASCII representation of the segment
+     * Returns an ASCII representation of the vector as the ASCII representation of the point
      * @return String
      *              the ASCII representation of the vector
      */
     public String toString()
     {
-        return "" + super.toString();
+        return "V" + super.toString();
     }
 
 }
