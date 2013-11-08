@@ -68,7 +68,7 @@ public class MovingBall extends Ball
     // TODO (FIXED) rename this method and use relevant parameter
     public void setNewSpeed(Point pointToAddToTheVector)
     {
-        this.speedVector.addPoint(pointToAddToTheVector);
+        this.speedVector = this.speedVector.addPoint(pointToAddToTheVector);
     }
     
     /**
