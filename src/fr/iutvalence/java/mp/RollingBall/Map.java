@@ -28,7 +28,7 @@ public class Map
      * @param segmentWhereTheBallCanBeReleased
      *            line where the ball can be released
      */
-    public Map(Segment segmentsOfTheField[], Segment segmentWhereTheBallCanBeReleased)
+    public Map(Segment[] segmentsOfTheField, Segment segmentWhereTheBallCanBeReleased)
     {
         this.segmentsOfTheField = segmentsOfTheField;
         this.segmentWhereTheBallCanBeReleased = segmentWhereTheBallCanBeReleased;
