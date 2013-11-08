@@ -54,19 +54,6 @@ public class Point
     {
         return this.y;
     }    
-
-    /**
-     * method to add two points
-     * 
-     * @param point
-     *              the Point we want to add to the current Point
-     * @return Point
-     *              the resulting Point
-     */
-    public Point addPoint(Point point)
-    {
-        return new Point(this.x+point.x,this.y+point.y);
-    }
     
     /**
      * method equals for the point class.
