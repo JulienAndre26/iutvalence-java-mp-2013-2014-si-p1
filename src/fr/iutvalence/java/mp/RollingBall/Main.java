@@ -73,7 +73,7 @@ public class Main
             System.out.println("le jeu commence !!");
             theGame.play();
         }
-        catch (SamePointException e)
+        catch (NullVectorException e)
         {
             e.printStackTrace();
         }       

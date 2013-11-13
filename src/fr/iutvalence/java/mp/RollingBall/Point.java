@@ -2,12 +2,11 @@ package fr.iutvalence.java.mp.RollingBall;
 
 /**
  * 
- * two integers which define the point
+ * two integers that define the point
  * 
  * @author andrejul
  * 
  */
-// TODO (FIXED) maybe it should be better to consider coordinates as doubles
 public class Point
 {
 
@@ -82,7 +81,6 @@ public class Point
         return temp.getX() == this.x && temp.getY() == this.y;
         
     }
-    // TODO (FIXED) finish writing comment
 
     /**
      * Returns an ASCII representation of the point as ( the abscissa of the point, the ordered of the point )

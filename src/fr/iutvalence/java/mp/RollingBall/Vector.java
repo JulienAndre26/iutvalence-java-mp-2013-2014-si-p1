@@ -1,6 +1,5 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-// TODO (FIXED) detail comment
 /**
  * the Vector extends the Point class and it is used to set up the physic
  * rules in the game. 
@@ -32,12 +31,12 @@ public class Vector extends Point
      * @return Point
      *              the resulting Point
      */
+    // TODO (refactor) this method should be renamed sum and take a vector as parameter
     public Vector addPoint(Point point)
     {
         return new Vector( this.getX() + point.getX(), this.getY() + point.getY() );
     }
     
-    // TODO (FIXED) finish writing comment
     /**
      * Returns an ASCII representation of the vector as the ASCII representation of the point
      * @return String
@@ -47,5 +46,4 @@ public class Vector extends Point
     {
         return "V" + super.toString();
     }
-
 }

@@ -7,43 +7,39 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  * 
  */
-//TODO (FIXED) this class has a duplicate (RollingBall)
 public class RollingBallGame
 {
     /**
      * the name of the player
      */
-    private String nameOfThePlayer;
+    private String playerName;
 
     /**
      * the map used by the player
      */
-    private Map mapUsedByThePlayer;
+    private Map map;
 
     /**
      * the ball used by the player
      */
-    private MovingBall ballUsedByThePlayer;
-
-
-    // TODO (FIXED) looks like a local variable
+    private MovingBall movingBall;
 
     /**
      * rollingball game created with three parameters : the name of the player, the
      * map where the player wants to play and the ball the player want to use
      * 
-     * @param nameOfThePlayerPlaying
+     * @param playerName
      *            the name of the player
-     * @param mapChoosedByThePlayer
+     * @param map
      *            the map used by the player
-     * @param ballChoosedByThePlayer
+     * @param movingBall
      *            the ball choose by the player
      */
-    public RollingBallGame(String nameOfThePlayerPlaying, Map mapChoosedByThePlayer, MovingBall ballChoosedByThePlayer)
+    public RollingBallGame(String playerName, Map map, MovingBall movingBall)
     {
-        this.nameOfThePlayer = nameOfThePlayerPlaying;
-        this.mapUsedByThePlayer = mapChoosedByThePlayer;
-        this.ballUsedByThePlayer = ballChoosedByThePlayer;
+        this.playerName = playerName;
+        this.map = map;
+        this.movingBall = movingBall;
     }
 
     /**
@@ -52,53 +48,58 @@ public class RollingBallGame
     public void play()
     {
         boolean youCanPlay = true;
-        Point gravityPower = new Point(0, -10);
+        
+        // TODO (fix) declare hard-coded values as constants
+        Point gravityPower = new Point(0, -10);        
         double time = 0;
         double scoreOfThePlayer = 0;
-        System.out.println("welcome " + this.nameOfThePlayer + " !!");
+        System.out.println("welcome " + this.playerName + " !!");
 
-        // TODO (FIXED) rename local variable (more explicit)
-        int indiceOfTheSegmentsField;
+        int segmentArrayOffset;
 
         while (youCanPlay)
         {
+            // TODO (refactor) extract intersection code to a private method
             // Control of the intersection of the ball with the game's field 
-            indiceOfTheSegmentsField = 0;
-            while ( indiceOfTheSegmentsField < this.mapUsedByThePlayer.getSegmentsOfTheField().length && 
-                    !( this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].intersect(this.ballUsedByThePlayer) ) )
+            segmentArrayOffset = 0;
+            while ( segmentArrayOffset < this.map.getSegmentsOfTheField().length && 
+                    !( this.map.getSegmentsOfTheField()[segmentArrayOffset].intersect(this.movingBall) ) )
             {
-                indiceOfTheSegmentsField++;
+                segmentArrayOffset++;
             }
-            if (indiceOfTheSegmentsField == this.mapUsedByThePlayer.getSegmentsOfTheField().length)
+            if (segmentArrayOffset == this.map.getSegmentsOfTheField().length)
             {
                 System.out.println("vole petite baballe !");
-                this.ballUsedByThePlayer.setNewSpeed(gravityPower);
+                this.movingBall.setNewSpeed(gravityPower);
             }
             else
             {
                 System.out.println("stop ! tu touches !");
-                Point forceReaction = this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].getReactionPower(this.ballUsedByThePlayer); 
-                System.out.println("R " + this.mapUsedByThePlayer.getSegmentsOfTheField()[indiceOfTheSegmentsField].getReactionPower(this.ballUsedByThePlayer));               
-                this.ballUsedByThePlayer.setNewSpeed(gravityPower);
-                this.ballUsedByThePlayer.setNewSpeed(forceReaction);
+                Point forceReaction = this.map.getSegmentsOfTheField()[segmentArrayOffset].getReactionPower(this.movingBall); 
+                System.out.println("R " + this.map.getSegmentsOfTheField()[segmentArrayOffset].getReactionPower(this.movingBall));               
+                this.movingBall.setNewSpeed(gravityPower);
+                this.movingBall.setNewSpeed(forceReaction);
             }
 
-            System.out.println(this.ballUsedByThePlayer);
+            System.out.println(this.movingBall);
 
             // Control of the play's time
+            
+            // TODO (fix) declare hard-coded values as constants
+            // TODO (think about it) this if-else can be reduced to a single assignment            
             if (time == 100)
             {
                 youCanPlay = false;
             }
             else
             {
-                MovingBall nextBall = new MovingBall( this.ballUsedByThePlayer.getRadius(), 
-                        this.ballUsedByThePlayer.nextPositionOfTheBall(), this.ballUsedByThePlayer.getSpeedVector() );
+                MovingBall nextBall = new MovingBall( this.movingBall.getRadius(), 
+                        this.movingBall.nextPositionOfTheBall(), this.movingBall.getSpeedVector() );
 
-                scoreOfThePlayer = scoreOfThePlayer + this.ballUsedByThePlayer.nextPositionOfTheBall().getX() - this.ballUsedByThePlayer.getCenter().getX();
-                this.ballUsedByThePlayer = nextBall;
+                scoreOfThePlayer = scoreOfThePlayer + this.movingBall.nextPositionOfTheBall().getX() - this.movingBall.getCenter().getX();
+                this.movingBall = nextBall;
 
-                System.out.println("Your current score " + this.nameOfThePlayer + " : " + scoreOfThePlayer + " !!");
+                System.out.println("Your current score " + this.playerName + " : " + scoreOfThePlayer + " !!");
 
                 time++;
             }

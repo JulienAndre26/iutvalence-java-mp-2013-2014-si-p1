@@ -1,7 +1,6 @@
 package fr.iutvalence.java.mp.RollingBall;
 
 
-// TODO (FIXED) rewrite comment (not really understandable)
 /**
  * a segment is a piece of the game's field.
  * 
@@ -20,8 +19,6 @@ public class Segment
      */
     private Point endingPoint;
 
-    // TODO (FIXED) fix comment (obsolete)
-
     /**
      * a segment is created with two Points
      * 
@@ -29,14 +26,14 @@ public class Segment
      *            beginning of the segment
      * @param endingOfTheSegment
      *            length of the segment
-     * @throws SamePointException
+     * @throws NullVectorException
      *            if beginningOfTheSegment and endingOfTheSegment are equals
      */
-    public Segment(Point beginningOfTheSegment, Point endingOfTheSegment) throws SamePointException
+    public Segment(Point beginningOfTheSegment, Point endingOfTheSegment) throws NullVectorException
     {
         if ( beginningOfTheSegment.equals(endingOfTheSegment) )
         {
-            throw new SamePointException();
+            throw new NullVectorException();
         }
         else
         {
@@ -107,12 +104,20 @@ public class Segment
      * @return Point
      *            the component point of the reacting power
      */
+    // TODO finish writing comment
     public Point getReactionPower(MovingBall movingBall)
     {
         Point middlePoint = this.getMiddlePoint();
+        
         double l = this.getLength();
+        
+        // TODO (think about it) in Java, you can declare variable 
+        // when they are used
+        
         double x;
         double y;
+        
+        // TODO (fix) comply with naming conventions
         double B;
 
         if ( this.endingPoint.getY() == this.startingPoint.getY() )

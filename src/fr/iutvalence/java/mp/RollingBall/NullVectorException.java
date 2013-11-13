@@ -6,7 +6,7 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  *
  */
-public class SamePointException extends Exception
+public class NullVectorException extends Exception
 {
    
 }

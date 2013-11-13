@@ -12,7 +12,6 @@ public class Ball
     /**
      * radius of the ball
      */
-    // TODO (FIXED) maybe double should be used instead of int
     private double radius;
 
     /**
@@ -23,15 +22,15 @@ public class Ball
     /**
      * ball created with two defined parameters : a radius and a center
      * 
-     * @param radiusOfTheBallWanted
+     * @param ballRadius
      *            radius of the ball
-     * @param centerOfTheBallWanted
+     * @param ballCenter
      *            center of the ball
      */
-    public Ball(double radiusOfTheBallWanted, Point centerOfTheBallWanted)
+    public Ball(double ballRadius, Point ballCenter)
     {
-        this.radius = radiusOfTheBallWanted;
-        this.center = centerOfTheBallWanted;
+        this.radius = ballRadius;
+        this.center = ballCenter;
     }
 
     /**
@@ -56,7 +55,6 @@ public class Ball
         return this.radius;
     }
 
-    // TODO (FIXED) finish writing comment
     /**
      * Returns an ASCII representation of the ball as : [ center of the ball, radius of the ball ]
      * @return String
