@@ -12,8 +12,12 @@ public class RollingBallGame
     /**
      * maximum time of a play
      */
-    public final static double TIME_MAX = 5000;
+    public final static double TIME_MAX = 10000;
 
+    /**
+     * maximum times that the ball doesn't move (to stop the play if the ball doesn't move) 
+     */
+    public final static double TIME_OF_STATIC_BALL_MAX = 2;
     /**
      * gravity applied to the ball during a play
      */
@@ -77,7 +81,10 @@ public class RollingBallGame
         int intersectionControl;
         // TODO (FIXED) declare hard-coded values as constants
         double time = 0;
+        double timeInAir = 0;
         double scoreOfThePlayer = 0;
+        double numberOfBounceOfTheBall = 0;
+        double numbOfStaticBall = 0;
         System.out.println("welcome " + this.playerName + " !!");
 
         while (youCanPlay)
@@ -86,18 +93,31 @@ public class RollingBallGame
             // Control of the intersection of the ball with the game's field 
 
             intersectionControl = intersectionBallSegmentControl();
+
+            this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(GRAVITY_POWER));
+
             if (intersectionControl == this.map.getSegmentsOfTheField().length)
             {
+                timeInAir++;
                 System.out.println("vole petite baballe !");
-                this.movingBall.getSpeedVector().sum(GRAVITY_POWER);
             }
             else
             {
-                System.out.println("stop ! tu touches !");
-                Vector forceReaction = this.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(this.movingBall); 
-                System.out.println("R " + this.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(this.movingBall));               
-                this.movingBall.getSpeedVector().sum(GRAVITY_POWER);
-                this.movingBall.getSpeedVector().sum(forceReaction);
+                // Control of the vector to apply reacting force only once
+                if (this.movingBall.getSpeedVector().getY() <= 0)
+                {
+                    if (timeInAir > 6)
+                    {
+                        numberOfBounceOfTheBall++;
+                        System.out.println("boing !");
+                    }
+                    timeInAir = 0;
+                    System.out.println("stop ! tu touches !");
+                    Vector forceReaction = this.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(this.movingBall);
+                    System.out.println(this.map.getSegmentsOfTheField()[intersectionControl]);
+                    System.out.println("R " + forceReaction);
+                    this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(forceReaction));
+                }
             }
 
             System.out.println(this.movingBall);
@@ -111,19 +131,34 @@ public class RollingBallGame
                 youCanPlay = false;
             }
 
-            MovingBall nextBall = new MovingBall( this.movingBall.getRadius(), 
+            MovingBall nextPositionOfTheBall = new MovingBall( this.movingBall.getRadius(),
                     this.movingBall.nextPositionOfTheBall(), this.movingBall.getSpeedVector() );
 
             scoreOfThePlayer = scoreOfThePlayer + this.movingBall.nextPositionOfTheBall().getX() - this.movingBall.getCenter().getX();
-            this.movingBall = nextBall;
 
-            System.out.println("Your current score " + this.playerName + " : " + scoreOfThePlayer + " !!");
+            // stop the game if the ball does not move
+            if ( !this.movingBall.getCenter().equals(nextPositionOfTheBall.getCenter()) )
+            {
+                numbOfStaticBall = 0;
+            }
+            else
+            {
+                numbOfStaticBall++;
+            }
 
-            time++;
+            this.movingBall = nextPositionOfTheBall;
 
+            System.out.println("Your current score " + this.playerName + " : " + (int)scoreOfThePlayer + " !!");
+
+            if ( numbOfStaticBall == TIME_OF_STATIC_BALL_MAX )
+            {
+                youCanPlay = false;
+                System.out.println("La balle ne bouge plus :(\n--> end of the play");
+                System.out.println("La balle a rebondit " + (int)(numberOfBounceOfTheBall) + " fois ! :p");
+                System.out.println("Your final score " + this.playerName + " : " + (int)scoreOfThePlayer + " !!");
+            }   
+            time++;            
         }
     }
-
-
 
 }
