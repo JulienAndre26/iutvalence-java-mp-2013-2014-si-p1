@@ -12,7 +12,7 @@ public class MovingBall extends Ball
     /**
      * display's frequency of the ball
      */
-    public final static double DISPLAY_FREQUENCY = 60;
+    public final static double DISPLAY_FREQUENCY = 60*30;
     
     /**
      * speed vector of the MovingBall
@@ -57,6 +57,17 @@ public class MovingBall extends Ball
     public Vector getSpeedVector()
     {
         return this.speedVector;
+    }
+    
+    /**
+     * method to set the speedVector of the ball
+     * 
+     * @param vector
+     *              the new speedVector of the ball
+     */
+    public void setSpeedVector(Vector vector)
+    {
+        this.speedVector = vector;
     }
     
     /**
