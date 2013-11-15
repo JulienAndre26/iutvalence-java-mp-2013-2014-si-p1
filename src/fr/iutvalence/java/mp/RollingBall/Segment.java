@@ -10,6 +10,11 @@ package fr.iutvalence.java.mp.RollingBall;
 public class Segment
 {
     /**
+     * bounce factor of the segment
+     */
+    public final static double BOUNCE_FACTOR = 1.29;
+    
+    /**
      * starting point
      */
     private Point startingPoint;
@@ -86,19 +91,6 @@ public class Segment
     }
 
     /**
-     * method to get the length of a segment
-     * @return Double
-     *              the length of a segment
-     */
-    public Double getLength()
-    {
-        double l;
-        l = Math.sqrt( ( this.endingPoint.getX() - this.startingPoint.getX() ) * ( this.endingPoint.getX() - this.startingPoint.getX() )
-                + ( this.endingPoint.getY() - this.startingPoint.getY() ) * ( this.endingPoint.getY() - this.startingPoint.getY() ) );
-        return l;
-    }
-
-    /**
      * method to get the component point which characterize the reacting power
      * @param movingBall
      *            the ball which hits the segment
@@ -108,9 +100,7 @@ public class Segment
     // TODO (FIXED) finish writing comment
     public Vector getReactionPower(MovingBall movingBall)
     {
-        Point middlePoint = this.getMiddlePoint();
-
-        double l = this.getLength();
+        double length = movingBall.getSpeedVector().getLength();
 
         // TODO (FIXED) in Java, you can declare variable 
         // when they are used
@@ -122,11 +112,11 @@ public class Segment
         {
             if ( this.endingPoint.getX() > this.startingPoint.getX() )
             {
-                return new Vector( middlePoint.getX()-l, middlePoint.getY() );
+                return new Vector( 0, length * BOUNCE_FACTOR );
             }
             else if ( this.endingPoint.getX() < this.startingPoint.getX() )
             {
-                return new Vector( middlePoint.getX()+l, middlePoint.getY() );
+                return new Vector( 0, -length * BOUNCE_FACTOR );
             }
         }
 
@@ -134,18 +124,18 @@ public class Segment
         {
             if ( this.endingPoint.getY() > this.startingPoint.getY() )
             {
-                return new Vector( middlePoint.getX(), middlePoint.getY()+l );
+                return new Vector( -length * BOUNCE_FACTOR, 0 );
             }
             else if ( this.endingPoint.getY() < this.startingPoint.getY() )
             {
-                return new Vector( middlePoint.getX(), middlePoint.getY()-l );
+                return new Vector( length * BOUNCE_FACTOR, 0 );
             }
         }
 
         double beta = Math.atan( ( this.endingPoint.getY() - this.startingPoint.getY() ) / ( this.endingPoint.getX() - this.startingPoint.getX() ) ) + Math.PI/2;
 
-        double x = l * Math.cos(beta) + middlePoint.getX();
-        double y = l * Math.sin(beta) + middlePoint.getY();
+        double x = length * BOUNCE_FACTOR * Math.cos(beta);
+        double y = length * BOUNCE_FACTOR * Math.sin(beta);
 
         return new Vector( x, y );
     }
@@ -162,33 +152,20 @@ public class Segment
     public boolean intersect(Ball currentBall)
     {
         boolean isIntersect;
-        double a;
-        double b;
-        double c;
-        double r;
-        double x1Ball;
-        double y1Ball;
+        
+        double r = currentBall.getRadius();
+        double cxBall = currentBall.getCenter().getX();
+        double cyBall = currentBall.getCenter().getY();
 
-        double x2Segment;
-        double y2Segment;
+        double axSegment = this.startingPoint.getX();
+        double aySegment = this.startingPoint.getY();
 
-        double x3Segment;
-        double y3Segment;
+        double bxSegment = this.endingPoint.getX();
+        double bySegment = this.endingPoint.getY();
 
-        r = currentBall.getRadius();
-        x1Ball = currentBall.getCenter().getX();
-        y1Ball = currentBall.getCenter().getY();
-
-        x2Segment = this.startingPoint.getX();
-        y2Segment = this.startingPoint.getY();
-
-        x3Segment = this.endingPoint.getX();
-        y3Segment = this.endingPoint.getY();
-
-        a = (x3Segment - x2Segment) * (x3Segment - x2Segment) + (y3Segment) * (y2Segment);
-        b = 2 * ((x3Segment - x2Segment) * (x2Segment - x1Ball) + (y3Segment - y2Segment) * (y2Segment - y1Ball));
-        c = x2Segment * x2Segment + y2Segment * y2Segment + x1Ball * x1Ball + y1Ball * y1Ball - 2
-                * (x2Segment * x1Ball + y2Segment * y1Ball) - r * r;
+        double a = (bxSegment - axSegment) * (bxSegment - axSegment) + (bySegment - aySegment) * (bySegment - aySegment);
+        double b = 2 * ((bxSegment - axSegment) * (axSegment - cxBall) + (bySegment - aySegment) * (aySegment - cyBall));
+        double c = axSegment * axSegment + aySegment * aySegment + cxBall * cxBall + cyBall * cyBall - 2 * (axSegment * cxBall + aySegment * cyBall) - r * r;
 
         if (b * b - 4 * a * c < 0)
         {
@@ -196,7 +173,16 @@ public class Segment
         }
         else
         {
-            isIntersect = true;
+            double d = ( ( (cxBall - axSegment) * (bxSegment - axSegment) + (cyBall - aySegment) * (bySegment - aySegment) ) / 
+                    ( (bxSegment - axSegment) * (bxSegment - axSegment) + (bySegment - aySegment) * (bySegment - aySegment) ) );
+            if (d >= 0 && d <= 1)
+            {
+                isIntersect = true;
+            }
+            else
+            {
+                isIntersect = false;
+            }
         }
         return isIntersect;
     }
