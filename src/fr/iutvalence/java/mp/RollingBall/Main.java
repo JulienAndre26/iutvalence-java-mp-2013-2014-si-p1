@@ -19,7 +19,7 @@ public class Main
     {
         try
         {
-            Point beginningOfTheSegment = new Point(50, 20);
+            Point beginningOfTheSegment = new Point(50, 25);
             Point endingOfTheSegment = new Point(50, 50);
 
             Segment segmentWhereTheBallCanBeReleased = new Segment(beginningOfTheSegment, endingOfTheSegment);
