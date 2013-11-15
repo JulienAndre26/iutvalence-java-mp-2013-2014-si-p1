@@ -24,6 +24,18 @@ public class Vector extends Point
     }
     
     /**
+     * method to get the length of a vector
+     * @return Double
+     * the length of a vector
+     */
+    public Double getLength()
+    {
+        double length;
+        length = Math.sqrt( this.getX() * this.getX() + this.getY() * this.getY() );
+        return length;
+    }
+    
+    /**
      * method to add two vectors
      * 
      * @param vector
