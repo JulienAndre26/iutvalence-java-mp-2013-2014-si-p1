@@ -70,6 +70,7 @@ public class Main
             String nameOfThePlayerPlaying = "toto";
 
             RollingBallGame theGame = new RollingBallGame(nameOfThePlayerPlaying, map, ball);
+            /*---------------------------------------------------------------------------------*/
             System.out.println("le jeu commence !!");
             theGame.play();
         }
