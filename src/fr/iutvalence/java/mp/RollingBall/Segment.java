@@ -100,35 +100,33 @@ public class Segment
 
     /**
      * method to get the component point which characterize the reacting power
-     * 
+     * @param movingBall
+     *            the ball which hits the segment
      * @return Point
      *            the component point of the reacting power
      */
-    // TODO finish writing comment
-    public Point getReactionPower(MovingBall movingBall)
+    // TODO (FIXED) finish writing comment
+    public Vector getReactionPower(MovingBall movingBall)
     {
         Point middlePoint = this.getMiddlePoint();
-        
+
         double l = this.getLength();
-        
-        // TODO (think about it) in Java, you can declare variable 
+
+        // TODO (FIXED) in Java, you can declare variable 
         // when they are used
-        
-        double x;
-        double y;
-        
-        // TODO (fix) comply with naming conventions
-        double B;
+
+
+        // TODO (FIXED) comply with naming conventions
 
         if ( this.endingPoint.getY() == this.startingPoint.getY() )
         {
             if ( this.endingPoint.getX() > this.startingPoint.getX() )
             {
-                return new Point( middlePoint.getX()-l, middlePoint.getY() );
+                return new Vector( middlePoint.getX()-l, middlePoint.getY() );
             }
             else if ( this.endingPoint.getX() < this.startingPoint.getX() )
             {
-                return new Point( middlePoint.getX()+l, middlePoint.getY() );
+                return new Vector( middlePoint.getX()+l, middlePoint.getY() );
             }
         }
 
@@ -136,20 +134,20 @@ public class Segment
         {
             if ( this.endingPoint.getY() > this.startingPoint.getY() )
             {
-                return new Point( middlePoint.getX(), middlePoint.getY()+l );
+                return new Vector( middlePoint.getX(), middlePoint.getY()+l );
             }
             else if ( this.endingPoint.getY() < this.startingPoint.getY() )
             {
-                return new Point( middlePoint.getX(), middlePoint.getY()-l );
+                return new Vector( middlePoint.getX(), middlePoint.getY()-l );
             }
         }
 
-        B = Math.atan( ( this.endingPoint.getY() - this.startingPoint.getY() ) / ( this.endingPoint.getX() - this.startingPoint.getX() ) ) + Math.PI/2;
+        double beta = Math.atan( ( this.endingPoint.getY() - this.startingPoint.getY() ) / ( this.endingPoint.getX() - this.startingPoint.getX() ) ) + Math.PI/2;
 
-        x = l * Math.cos(B) + middlePoint.getX();
-        y = l * Math.sin(B) + middlePoint.getY();
+        double x = l * Math.cos(beta) + middlePoint.getX();
+        double y = l * Math.sin(beta) + middlePoint.getY();
 
-        return new Point ( x, y );
+        return new Vector( x, y );
     }
 
 
