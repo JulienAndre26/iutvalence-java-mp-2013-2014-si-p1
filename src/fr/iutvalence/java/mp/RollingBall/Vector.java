@@ -24,17 +24,17 @@ public class Vector extends Point
     }
     
     /**
-     * method to add two points
+     * method to add two vectors
      * 
-     * @param point
-     *              the Point we want to add to the current Point
-     * @return Point
-     *              the resulting Point
+     * @param vector
+     *              the Vector we want to add to the current Vector
+     * @return Vector
+     *              the resulting Vector
      */
-    // TODO (refactor) this method should be renamed sum and take a vector as parameter
-    public Vector addPoint(Point point)
+    // TODO (FIXED) this method should be renamed sum and take a vector as parameter
+    public Vector sum(Vector vector)
     {
-        return new Vector( this.getX() + point.getX(), this.getY() + point.getY() );
+        return new Vector( this.getX() + vector.getX(), this.getY() + vector.getY() );
     }
     
     /**
