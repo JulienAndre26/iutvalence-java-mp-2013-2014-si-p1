@@ -30,8 +30,8 @@ public class Point
      */
     public Point(double x, double y)
     {
-        this.x = x;
-        this.y = y;
+        this.x = (double)((int)(x*500))/500;
+        this.y = (double)((int)(y*500))/500;
     }
 
     /**
