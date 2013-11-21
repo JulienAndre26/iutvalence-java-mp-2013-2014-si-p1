@@ -43,7 +43,6 @@ public class Vector extends Point
      * @return Vector
      *              the resulting Vector
      */
-    // TODO (FIXED) this method should be renamed sum and take a vector as parameter
     public Vector sum(Vector vector)
     {
         return new Vector( this.getX() + vector.getX(), this.getY() + vector.getY() );

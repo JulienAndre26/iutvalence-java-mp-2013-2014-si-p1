@@ -91,22 +91,15 @@ public class Segment
     }
 
     /**
-     * method to get the component point which characterize the reacting power
+     * method to get the component point which characterizes the reacting power
      * @param movingBall
      *            the ball which hits the segment
      * @return Point
      *            the component point of the reacting power
      */
-    // TODO (FIXED) finish writing comment
     public Vector getReactionPower(MovingBall movingBall)
     {
         double length = movingBall.getSpeedVector().getLength();
-
-        // TODO (FIXED) in Java, you can declare variable 
-        // when they are used
-
-
-        // TODO (FIXED) comply with naming conventions
 
         if ( this.endingPoint.getY() == this.startingPoint.getY() )
         {
@@ -187,7 +180,6 @@ public class Segment
         return isIntersect;
     }
 
-    // TODO (FIXED) finish writing comment
     /**
      * Returns an ASCII representation of the segment as [ starting point of the segment, ending point of the segment ]
      * @return String

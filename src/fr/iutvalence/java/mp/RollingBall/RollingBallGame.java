@@ -79,7 +79,6 @@ public class RollingBallGame
     {
         boolean youCanPlay = true;
         int intersectionControl;
-        // TODO (FIXED) declare hard-coded values as constants
         double time = 0;
         double timeInAir = 0;
         double scoreOfThePlayer = 0;
@@ -89,9 +88,7 @@ public class RollingBallGame
 
         while (youCanPlay)
         {
-            // TODO (FIXED) extract intersection code to a private method
             // Control of the intersection of the ball with the game's field 
-
             intersectionControl = intersectionBallSegmentControl();
 
             this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(GRAVITY_POWER));
@@ -124,12 +121,8 @@ public class RollingBallGame
 
             // Control of the play's time
 
-            // TODO (FIXED) declare hard-coded values as constants
-            // TODO (FIXED) this if-else can be reduced to a single assignment            
             if (time == TIME_MAX)
-            {
                 youCanPlay = false;
-            }
 
             MovingBall nextPositionOfTheBall = new MovingBall( this.movingBall.getRadius(),
                     this.movingBall.nextPositionOfTheBall(), this.movingBall.getSpeedVector() );
