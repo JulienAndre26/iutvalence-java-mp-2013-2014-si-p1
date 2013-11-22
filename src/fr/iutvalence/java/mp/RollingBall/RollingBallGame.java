@@ -99,7 +99,7 @@ public class RollingBallGame
         else
         {           
             youCanPlay = true;
-            System.out.println("welcome " + theGame.playerName + " !!");
+            Display.gameStart(theGame.playerName);
         }        
 
         while (youCanPlay)
@@ -112,7 +112,7 @@ public class RollingBallGame
             if (intersectionControl == theGame.map.getSegmentsOfTheField().length)
             {
                 timeInAir++;
-                System.out.println("vole petite baballe !");
+                Display.flyingBall(theGame.movingBall);
             }
             else
             {
@@ -122,60 +122,57 @@ public class RollingBallGame
                     if (timeInAir > 6)
                     {
                         numberOfBounceOfTheBall++;
-                        System.out.println("boing !");
+                        Display.bounce();
                     }
                     timeInAir = 0;
-                    System.out.println("stop ! tu touches !");
                     Vector forceReaction = theGame.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(theGame.movingBall);
-                    System.out.println(theGame.map.getSegmentsOfTheField()[intersectionControl]);
-                    System.out.println("R " + forceReaction);
+                    Display.theBallHits(theGame.map.getSegmentsOfTheField()[intersectionControl],forceReaction,theGame.movingBall);
                     theGame.movingBall.setSpeedVector(theGame.movingBall.getSpeedVector().sum(forceReaction));
                 }
             }
 
-            System.out.println(theGame.movingBall);
-
             // Control of the play's time
-
             if (time == TIME_MAX)
-                youCanPlay = false;
-
-            MovingBall nextPositionOfTheBall = new MovingBall( theGame.movingBall.getRadius(),
-                    theGame.movingBall.nextPositionOfTheBall(), theGame.movingBall.getSpeedVector() );
-
-            scoreOfThePlayer = scoreOfThePlayer + theGame.movingBall.nextPositionOfTheBall().getX() - theGame.movingBall.getCenter().getX();
-
-            // stop the game if the ball does not move
-            if ( !theGame.movingBall.getCenter().equals(nextPositionOfTheBall.getCenter()) )
             {
-                numbOfStaticBall = 0;
+                youCanPlay = false;
             }
             else
             {
-                numbOfStaticBall++;
-            }
+                MovingBall nextPositionOfTheBall = new MovingBall( theGame.movingBall.getRadius(),
+                        theGame.movingBall.nextPositionOfTheBall(), theGame.movingBall.getSpeedVector() );
 
-            theGame.movingBall = nextPositionOfTheBall;
+                scoreOfThePlayer = scoreOfThePlayer + theGame.movingBall.nextPositionOfTheBall().getX() - theGame.movingBall.getCenter().getX();
 
-            System.out.println("Your current score " + theGame.playerName + " : " + (int)scoreOfThePlayer + " !!");
+                // stop the game if the ball does not move
+                if ( !theGame.movingBall.getCenter().equals(nextPositionOfTheBall.getCenter()) )
+                {
+                    numbOfStaticBall = 0;
+                }
+                else
+                {
+                    numbOfStaticBall++;
+                }
 
-            if ( numbOfStaticBall == TIME_OF_STATIC_BALL_MAX )
-            {
-                youCanPlay = false;
-                System.out.println("La balle ne bouge plus :(\n--> end of the play");
-                System.out.println("La balle a rebondit " + (int)(numberOfBounceOfTheBall) + " fois ! :p");
-                System.out.println("Your final score " + theGame.playerName + " : " + (int)scoreOfThePlayer + " !!");
-            }   
-            time++;
+                theGame.movingBall = nextPositionOfTheBall;
 
-            // a wait to make the time match more with reality
-            try
-            {
-                Thread.sleep((long)WAITING_TIME);
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
+                Display.roundEnd(theGame.playerName, scoreOfThePlayer);
+
+                if ( numbOfStaticBall == TIME_OF_STATIC_BALL_MAX )
+                {
+                    youCanPlay = false;
+                    Display.gameEnd(numberOfBounceOfTheBall, theGame.playerName, scoreOfThePlayer);
+                }   
+                time++;
+
+                // a wait to make the time match more with reality
+                try
+                {
+                    Thread.sleep((long)WAITING_TIME);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
             }
         }
     }
