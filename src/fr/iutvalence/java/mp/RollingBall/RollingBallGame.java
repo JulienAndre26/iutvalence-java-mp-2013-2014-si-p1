@@ -18,6 +18,12 @@ public class RollingBallGame
      * maximum times that the ball doesn't move (to stop the play if the ball doesn't move) 
      */
     public final static double TIME_OF_STATIC_BALL_MAX = 2;
+
+    /**
+     * time to wait to have a real time
+     */
+    public final static double WAITING_TIME = (60/MovingBall.DISPLAY_FREQUENCY)*1000;
+
     /**
      * gravity applied to the ball during a play
      */
@@ -39,7 +45,7 @@ public class RollingBallGame
     private MovingBall movingBall;
 
     /**
-     * rollingball game created with three parameters : the name of the player, the
+     * RollingBallGame created with three parameters : the name of the player, the
      * map where the player wants to play and the ball the player want to use
      * 
      * @param playerName
@@ -75,25 +81,35 @@ public class RollingBallGame
     /**
      * play the game
      */
-    public void play()
+    public static void play()
     {
-        boolean youCanPlay = true;
+        RollingBallGame theGame = Player.initialize(); 
+        boolean youCanPlay;
         int intersectionControl;
         double time = 0;
         double timeInAir = 0;
         double scoreOfThePlayer = 0;
         double numberOfBounceOfTheBall = 0;
         double numbOfStaticBall = 0;
-        System.out.println("welcome " + this.playerName + " !!");
+
+        if (theGame == null)
+        {
+            youCanPlay = false;
+        }
+        else
+        {           
+            youCanPlay = true;
+            System.out.println("welcome " + theGame.playerName + " !!");
+        }        
 
         while (youCanPlay)
         {
             // Control of the intersection of the ball with the game's field 
-            intersectionControl = intersectionBallSegmentControl();
+            intersectionControl = theGame.intersectionBallSegmentControl();
 
-            this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(GRAVITY_POWER));
+            theGame.movingBall.setSpeedVector(theGame.movingBall.getSpeedVector().sum(GRAVITY_POWER));
 
-            if (intersectionControl == this.map.getSegmentsOfTheField().length)
+            if (intersectionControl == theGame.map.getSegmentsOfTheField().length)
             {
                 timeInAir++;
                 System.out.println("vole petite baballe !");
@@ -101,7 +117,7 @@ public class RollingBallGame
             else
             {
                 // Control of the vector to apply reacting force only once
-                if (this.movingBall.getSpeedVector().getY() <= 0)
+                if (theGame.movingBall.getSpeedVector().getY() <= 0)
                 {
                     if (timeInAir > 6)
                     {
@@ -110,27 +126,27 @@ public class RollingBallGame
                     }
                     timeInAir = 0;
                     System.out.println("stop ! tu touches !");
-                    Vector forceReaction = this.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(this.movingBall);
-                    System.out.println(this.map.getSegmentsOfTheField()[intersectionControl]);
+                    Vector forceReaction = theGame.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(theGame.movingBall);
+                    System.out.println(theGame.map.getSegmentsOfTheField()[intersectionControl]);
                     System.out.println("R " + forceReaction);
-                    this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(forceReaction));
+                    theGame.movingBall.setSpeedVector(theGame.movingBall.getSpeedVector().sum(forceReaction));
                 }
             }
 
-            System.out.println(this.movingBall);
+            System.out.println(theGame.movingBall);
 
             // Control of the play's time
 
             if (time == TIME_MAX)
                 youCanPlay = false;
 
-            MovingBall nextPositionOfTheBall = new MovingBall( this.movingBall.getRadius(),
-                    this.movingBall.nextPositionOfTheBall(), this.movingBall.getSpeedVector() );
+            MovingBall nextPositionOfTheBall = new MovingBall( theGame.movingBall.getRadius(),
+                    theGame.movingBall.nextPositionOfTheBall(), theGame.movingBall.getSpeedVector() );
 
-            scoreOfThePlayer = scoreOfThePlayer + this.movingBall.nextPositionOfTheBall().getX() - this.movingBall.getCenter().getX();
+            scoreOfThePlayer = scoreOfThePlayer + theGame.movingBall.nextPositionOfTheBall().getX() - theGame.movingBall.getCenter().getX();
 
             // stop the game if the ball does not move
-            if ( !this.movingBall.getCenter().equals(nextPositionOfTheBall.getCenter()) )
+            if ( !theGame.movingBall.getCenter().equals(nextPositionOfTheBall.getCenter()) )
             {
                 numbOfStaticBall = 0;
             }
@@ -139,18 +155,28 @@ public class RollingBallGame
                 numbOfStaticBall++;
             }
 
-            this.movingBall = nextPositionOfTheBall;
+            theGame.movingBall = nextPositionOfTheBall;
 
-            System.out.println("Your current score " + this.playerName + " : " + (int)scoreOfThePlayer + " !!");
+            System.out.println("Your current score " + theGame.playerName + " : " + (int)scoreOfThePlayer + " !!");
 
             if ( numbOfStaticBall == TIME_OF_STATIC_BALL_MAX )
             {
                 youCanPlay = false;
                 System.out.println("La balle ne bouge plus :(\n--> end of the play");
                 System.out.println("La balle a rebondit " + (int)(numberOfBounceOfTheBall) + " fois ! :p");
-                System.out.println("Your final score " + this.playerName + " : " + (int)scoreOfThePlayer + " !!");
+                System.out.println("Your final score " + theGame.playerName + " : " + (int)scoreOfThePlayer + " !!");
             }   
-            time++;            
+            time++;
+
+            // a wait to make the time match more with reality
+            try
+            {
+                Thread.sleep((long)WAITING_TIME);
+            }
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 
