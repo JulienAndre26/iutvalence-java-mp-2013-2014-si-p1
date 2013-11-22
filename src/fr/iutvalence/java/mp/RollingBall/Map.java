@@ -17,7 +17,7 @@ public class Map
     /**
      * segment from where the ball can be released
      */
-    // TODO (fix) fix this warning
+    // TODO (FIXED) fix this warning
     private Segment segmentWhereTheBallCanBeReleased;
 
     /**
@@ -43,5 +43,15 @@ public class Map
     public Segment[] getSegmentsOfTheField()
     {
         return this.segmentsOfTheField;
+    }
+    
+    /**
+     * get the segment where the ball can be released
+     * 
+     * @return Segment segment where the ball can be released
+     */
+    public Segment getSegmentWhereTheBallCanBeReleased()
+    {
+        return this.segmentWhereTheBallCanBeReleased;
     }
 }
