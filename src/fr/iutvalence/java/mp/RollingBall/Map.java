@@ -17,7 +17,6 @@ public class Map
     /**
      * segment from where the ball can be released
      */
-    // TODO (FIXED) fix this warning
     private Segment segmentWhereTheBallCanBeReleased;
 
     /**

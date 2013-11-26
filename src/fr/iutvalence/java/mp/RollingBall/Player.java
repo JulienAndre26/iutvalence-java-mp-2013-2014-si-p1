@@ -8,12 +8,15 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class Player
 {
+    // TODO (fix) this method should not be static
     /**
      * method to initialize the game
      * 
      * @return RollingBallGame
      *                  the game initialized
      */
+    // TODO (fix) this method should only contain code related to the initial
+    // action of the player (it should return a position)
     public static RollingBallGame initialize()
     {
         Point beginningOfTheSegment = new Point(50, 25);
