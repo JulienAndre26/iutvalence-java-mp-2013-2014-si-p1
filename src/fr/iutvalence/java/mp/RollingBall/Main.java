@@ -17,8 +17,9 @@ public class Main
      */
     public static void main(String[] args)
     {
-        Display display = new Display();
-
+        ConsoleDisplay display = new ConsoleDisplay();
+        PlayerFixed player = new PlayerFixed();
+        
         Point beginningOfTheSegment = new Point(50, 25);
         Point endingOfTheSegment = new Point(50, 50);
         
@@ -70,10 +71,10 @@ public class Main
 
             MovingBall ball = new MovingBall(radiusOfTheBallWanted, centerOfTheBallWanted, speedOfTheBall);
             
-            RollingBallGame theGame = new RollingBallGame(nameOfThePlayerPlaying, map, ball);
+            RollingBallGame theGame = new RollingBallGame(display, player, nameOfThePlayerPlaying, map, ball);
             theGame.play();
         }
-        catch (NullVectorException e)
+        catch (SamePointException e)
         {
             e.printStackTrace();
         }
