@@ -8,12 +8,12 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class Display
 {
-
-    // TODO (fix) all the following methods should not be static
+    
+    // TODO (FIXED) all the following methods should not be static
     /**
      * method to print a message when the map is created
      */
-    public static void mapCreated()
+    public void mapCreated()
     {
         System.out.println("map created");
     }
@@ -21,7 +21,7 @@ public class Display
     /**
      * method to print a message when the ball is created
      */
-    public static void ballCreated()
+    public void ballCreated()
     {
         System.out.println("balle créée");        
     }
@@ -32,7 +32,7 @@ public class Display
      * @param movingBall
      *                  the moving ball which is flying
      */
-    public static void flyingBall(MovingBall movingBall)
+    public void flyingBall(MovingBall movingBall)
     {
         System.out.println("vole petite baballe !");
         System.out.println(movingBall);
@@ -48,7 +48,7 @@ public class Display
      * @param ballInMove 
      *                  the moving ball
      */
-    public static void theBallHits(Segment segmentHit, Vector reactPower, MovingBall ballInMove)
+    public void theBallHits(Segment segmentHit, Vector reactPower, MovingBall ballInMove)
     {
         System.out.println("stop ! tu touches !");
         System.out.println(segmentHit);
@@ -62,7 +62,7 @@ public class Display
      * @param playerName
      *                  the name of the player
      */
-    public static void gameStart(String playerName)
+    public void gameStart(String playerName)
     {
         System.out.println("welcome " + playerName + " !!"); 
     }
@@ -75,7 +75,7 @@ public class Display
      * @param scoreOfThePlayer
      *              the score of the player
      */
-    public static void roundEnd(String playerName, double scoreOfThePlayer)
+    public void roundEnd(String playerName, double scoreOfThePlayer)
     {
         System.out.println("Your current score " + playerName + " : " + (int)scoreOfThePlayer + " !!");       
     }
@@ -90,7 +90,7 @@ public class Display
      * @param scoreOfThePlayer
      *                  the score of the player                  
      */
-    public static void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer)
+    public void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer)
     {
         System.out.println("La balle ne bouge plus :(\n--> end of the play");
         System.out.println("La balle a rebondit " + (int)numberOfBounces + " fois ! :p");
@@ -100,7 +100,7 @@ public class Display
     /**
      * method to print a message when the ball bounces
      */
-    public static void bounce()
+    public void bounce()
     {
         System.out.println("Boing !");        
     }
