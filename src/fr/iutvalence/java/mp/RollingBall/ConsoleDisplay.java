@@ -6,7 +6,7 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  *
  */
-public class Display
+public class ConsoleDisplay implements Display
 {
     
     // TODO (FIXED) all the following methods should not be static
