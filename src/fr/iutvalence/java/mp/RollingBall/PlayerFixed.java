@@ -14,8 +14,8 @@ public class PlayerFixed
      * 
      * @param segmentWhereTheBallCanBeReleased 
      *                  the segment where the ball can be released to start the play
-     * @return MovingBall
-     *                  the game initialized
+     * @return Point
+     *                  the position of the ball
      */
     // TODO (FIXED) this method should only contain code related to the initial
     // action of the player (it should return a position)
