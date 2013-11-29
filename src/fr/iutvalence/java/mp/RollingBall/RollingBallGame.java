@@ -45,9 +45,23 @@ public class RollingBallGame
     private MovingBall movingBall;
 
     /**
+     * the type of display used
+     */
+    private Display display;
+
+    /**
+     * the typer of player used
+     */
+    private Player player;
+
+    /**
      * RollingBallGame created with three parameters : the name of the player, the
      * map where the player wants to play and the ball the player want to use
      * 
+     * @param display 
+     *            the type of display used
+     * @param player 
+     *            the type of player used
      * @param playerName
      *            the name of the player
      * @param map
@@ -55,8 +69,10 @@ public class RollingBallGame
      * @param movingBall
      *            the ball choose by the player
      */
-    public RollingBallGame(String playerName, Map map, MovingBall movingBall)
+    public RollingBallGame(Display display, Player player, String playerName, Map map, MovingBall movingBall)
     {
+        this.display = display;
+        this.player = player;
         this.playerName = playerName;
         this.map = map;
         this.movingBall = movingBall;
@@ -82,11 +98,8 @@ public class RollingBallGame
      * play the game
      */
     public void play()
-    {
-        Display display = new Display();
-        PlayerFixed player = new PlayerFixed();
-        
-        this.movingBall.setCenter(player.initialize(this.map.getSegmentWhereTheBallCanBeReleased()));
+    {                
+        this.movingBall.setCenter(this.player.initialize(this.map.getSegmentWhereTheBallCanBeReleased()));
         
         boolean youCanPlay;
         int intersectionControl;
@@ -96,10 +109,10 @@ public class RollingBallGame
         double numberOfBounceOfTheBall = 0;
         double numbOfStaticBall = 0;
 
-        display.ballCreated();        
+        this.display.ballCreated();        
 
         youCanPlay = true;
-        display.gameStart(this.playerName);
+        this.display.gameStart(this.playerName);
 
         while (youCanPlay)
         {
@@ -111,7 +124,7 @@ public class RollingBallGame
             if (intersectionControl == this.map.getSegmentsOfTheField().length)
             {
                 timeInAir++;
-                display.flyingBall(this.movingBall);
+                this.display.flyingBall(this.movingBall);
             }
             else
             {
@@ -121,11 +134,11 @@ public class RollingBallGame
                     if (timeInAir > 6)
                     {
                         numberOfBounceOfTheBall++;
-                        display.bounce();
+                        this.display.bounce();
                     }
                     timeInAir = 0;
                     Vector forceReaction = this.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(this.movingBall);
-                    display.theBallHits(this.map.getSegmentsOfTheField()[intersectionControl],forceReaction,this.movingBall);
+                    this.display.theBallHits(this.map.getSegmentsOfTheField()[intersectionControl],forceReaction,this.movingBall);
                     this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(forceReaction));
                 }
             }
@@ -154,12 +167,12 @@ public class RollingBallGame
 
                 this.movingBall = nextPositionOfTheBall;
 
-                display.roundEnd(this.playerName, scoreOfThePlayer);
+                this.display.roundEnd(this.playerName, scoreOfThePlayer);
 
                 if ( numbOfStaticBall == TIME_OF_STATIC_BALL_MAX )
                 {
                     youCanPlay = false;
-                    display.gameEnd(numberOfBounceOfTheBall, this.playerName, scoreOfThePlayer);
+                    this.display.gameEnd(numberOfBounceOfTheBall, this.playerName, scoreOfThePlayer);
                 }   
                 time++;
 
