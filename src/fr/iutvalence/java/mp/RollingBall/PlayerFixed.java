@@ -6,7 +6,7 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  *
  */
-public class PlayerFixed
+public class PlayerFixed implements Player
 {
     // TODO (FIXED) this method should not be static
     /**
