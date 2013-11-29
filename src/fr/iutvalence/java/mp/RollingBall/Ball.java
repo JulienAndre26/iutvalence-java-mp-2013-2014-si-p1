@@ -43,6 +43,17 @@ public class Ball
     {
         return this.center;
     }
+    
+    /**
+     * method to set the center of the ball
+     * 
+     * @param point
+     *              the new center of the ball
+     */
+    public void setCenter(Point point)
+    {
+        this.center = point;
+    }   
 
     /**
      * method to get the radius of the ball
