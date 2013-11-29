@@ -31,14 +31,14 @@ public class Segment
      *            beginning of the segment
      * @param endingOfTheSegment
      *            length of the segment
-     * @throws NullVectorException
+     * @throws SamePointException
      *            if beginningOfTheSegment and endingOfTheSegment are equals
      */
-    public Segment(Point beginningOfTheSegment, Point endingOfTheSegment) throws NullVectorException
+    public Segment(Point beginningOfTheSegment, Point endingOfTheSegment) throws SamePointException
     {
         if ( beginningOfTheSegment.equals(endingOfTheSegment) )
         {
-            throw new NullVectorException();
+            throw new SamePointException();
         }
         else
         {
