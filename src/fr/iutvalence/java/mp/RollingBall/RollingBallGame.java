@@ -81,9 +81,9 @@ public class RollingBallGame
     /**
      * play the game
      */
-    public static void play()
+    public void play()
     {
-        RollingBallGame theGame = Player.initialize(); 
+        Display display = new Display();
         boolean youCanPlay;
         int intersectionControl;
         double time = 0;
@@ -92,42 +92,37 @@ public class RollingBallGame
         double numberOfBounceOfTheBall = 0;
         double numbOfStaticBall = 0;
 
-        if (theGame == null)
-        {
-            youCanPlay = false;
-        }
-        else
-        {           
-            youCanPlay = true;
-            Display.gameStart(theGame.playerName);
-        }        
+        display.ballCreated();        
+
+        youCanPlay = true;
+        display.gameStart(this.playerName);
 
         while (youCanPlay)
         {
             // Control of the intersection of the ball with the game's field 
-            intersectionControl = theGame.intersectionBallSegmentControl();
+            intersectionControl = this.intersectionBallSegmentControl();
 
-            theGame.movingBall.setSpeedVector(theGame.movingBall.getSpeedVector().sum(GRAVITY_POWER));
+            this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(GRAVITY_POWER));
 
-            if (intersectionControl == theGame.map.getSegmentsOfTheField().length)
+            if (intersectionControl == this.map.getSegmentsOfTheField().length)
             {
                 timeInAir++;
-                Display.flyingBall(theGame.movingBall);
+                display.flyingBall(this.movingBall);
             }
             else
             {
                 // Control of the vector to apply reacting force only once
-                if (theGame.movingBall.getSpeedVector().getY() <= 0)
+                if (this.movingBall.getSpeedVector().getY() <= 0)
                 {
                     if (timeInAir > 6)
                     {
                         numberOfBounceOfTheBall++;
-                        Display.bounce();
+                        display.bounce();
                     }
                     timeInAir = 0;
-                    Vector forceReaction = theGame.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(theGame.movingBall);
-                    Display.theBallHits(theGame.map.getSegmentsOfTheField()[intersectionControl],forceReaction,theGame.movingBall);
-                    theGame.movingBall.setSpeedVector(theGame.movingBall.getSpeedVector().sum(forceReaction));
+                    Vector forceReaction = this.map.getSegmentsOfTheField()[intersectionControl].getReactionPower(this.movingBall);
+                    display.theBallHits(this.map.getSegmentsOfTheField()[intersectionControl],forceReaction,this.movingBall);
+                    this.movingBall.setSpeedVector(this.movingBall.getSpeedVector().sum(forceReaction));
                 }
             }
 
@@ -138,13 +133,13 @@ public class RollingBallGame
             }
             else
             {
-                MovingBall nextPositionOfTheBall = new MovingBall( theGame.movingBall.getRadius(),
-                        theGame.movingBall.nextPositionOfTheBall(), theGame.movingBall.getSpeedVector() );
+                MovingBall nextPositionOfTheBall = new MovingBall( this.movingBall.getRadius(),
+                        this.movingBall.nextPositionOfTheBall(), this.movingBall.getSpeedVector() );
 
-                scoreOfThePlayer = scoreOfThePlayer + theGame.movingBall.nextPositionOfTheBall().getX() - theGame.movingBall.getCenter().getX();
+                scoreOfThePlayer = scoreOfThePlayer + this.movingBall.nextPositionOfTheBall().getX() - this.movingBall.getCenter().getX();
 
                 // stop the game if the ball does not move
-                if ( !theGame.movingBall.getCenter().equals(nextPositionOfTheBall.getCenter()) )
+                if ( !this.movingBall.getCenter().equals(nextPositionOfTheBall.getCenter()) )
                 {
                     numbOfStaticBall = 0;
                 }
@@ -153,14 +148,14 @@ public class RollingBallGame
                     numbOfStaticBall++;
                 }
 
-                theGame.movingBall = nextPositionOfTheBall;
+                this.movingBall = nextPositionOfTheBall;
 
-                Display.roundEnd(theGame.playerName, scoreOfThePlayer);
+                display.roundEnd(this.playerName, scoreOfThePlayer);
 
                 if ( numbOfStaticBall == TIME_OF_STATIC_BALL_MAX )
                 {
                     youCanPlay = false;
-                    Display.gameEnd(numberOfBounceOfTheBall, theGame.playerName, scoreOfThePlayer);
+                    display.gameEnd(numberOfBounceOfTheBall, this.playerName, scoreOfThePlayer);
                 }   
                 time++;
 
