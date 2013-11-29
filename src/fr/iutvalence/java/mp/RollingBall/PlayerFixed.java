@@ -6,7 +6,7 @@ package fr.iutvalence.java.mp.RollingBall;
  * @author andrejul
  *
  */
-public class Player
+public class PlayerFixed
 {
     // TODO (FIXED) this method should not be static
     /**
@@ -19,14 +19,10 @@ public class Player
      */
     // TODO (FIXED) this method should only contain code related to the initial
     // action of the player (it should return a position)
-    public MovingBall initialize(Segment segmentWhereTheBallCanBeReleased)
+    public Point initialize(Segment segmentWhereTheBallCanBeReleased)
     {
-        Vector speedOfTheBall = new Vector(0, 0);
-        Point centerOfTheBallWanted = segmentWhereTheBallCanBeReleased.getStartingPoint();
-        int radiusOfTheBallWanted = 10;
+        Point center = segmentWhereTheBallCanBeReleased.getStartingPoint();
 
-        MovingBall ball = new MovingBall(radiusOfTheBallWanted, centerOfTheBallWanted, speedOfTheBall);
-
-        return ball;
+        return center;
     }
 }
