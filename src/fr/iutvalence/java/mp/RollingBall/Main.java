@@ -18,7 +18,6 @@ public class Main
     public static void main(String[] args)
     {
         Display display = new Display();
-        Player player = new Player();
 
         Point beginningOfTheSegment = new Point(50, 25);
         Point endingOfTheSegment = new Point(50, 50);
@@ -37,6 +36,10 @@ public class Main
 
         Point beginningOfTheSegment5 = new Point(0, 100);
         Point endingOfTheSegment5 = new Point(150, 100);
+        
+        Vector speedOfTheBall = new Vector(0, 0);
+        Point centerOfTheBallWanted = new Point(0,0);
+        int radiusOfTheBallWanted = 10;
 
         try
         {
@@ -65,7 +68,7 @@ public class Main
 
             String nameOfThePlayerPlaying = "toto";
 
-            MovingBall ball = player.initialize(segmentWhereTheBallCanBeReleased);
+            MovingBall ball = new MovingBall(radiusOfTheBallWanted, centerOfTheBallWanted, speedOfTheBall);
             
             RollingBallGame theGame = new RollingBallGame(nameOfThePlayerPlaying, map, ball);
             theGame.play();
