@@ -9,7 +9,6 @@ package fr.iutvalence.java.mp.RollingBall;
 public class ConsoleDisplay implements Display
 {
     
-    // TODO (FIXED) all the following methods should not be static
     /**
      * method to print a message when the map is created
      */

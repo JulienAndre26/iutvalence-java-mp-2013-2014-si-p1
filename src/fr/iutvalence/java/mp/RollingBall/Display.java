@@ -8,6 +8,8 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public interface Display
 {
+    // TODO (think about it) you have defined the interface with regards to the only available
+    // implementation : look ahead and imagine what kind of callback method any display needs
     /**
      * method to print a message when the map is created
      */

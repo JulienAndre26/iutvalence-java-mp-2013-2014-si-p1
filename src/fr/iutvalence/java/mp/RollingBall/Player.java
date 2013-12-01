@@ -16,5 +16,5 @@ public interface Player
      * @return Point
      *                  the position of the ball
      */
-    public Point initialize(Segment segmentWhereTheBallCanBeReleased);
+    public Point getStartingPoint(Segment segmentWhereTheBallCanBeReleased);
 }

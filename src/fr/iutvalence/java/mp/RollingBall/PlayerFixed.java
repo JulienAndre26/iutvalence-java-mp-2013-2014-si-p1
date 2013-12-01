@@ -8,7 +8,6 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class PlayerFixed implements Player
 {
-    // TODO (FIXED) this method should not be static
     /**
      * method to initialize the game
      * 
@@ -17,9 +16,7 @@ public class PlayerFixed implements Player
      * @return Point
      *                  the position of the ball
      */
-    // TODO (FIXED) this method should only contain code related to the initial
-    // action of the player (it should return a position)
-    public Point initialize(Segment segmentWhereTheBallCanBeReleased)
+    public Point getStartingPoint(Segment segmentWhereTheBallCanBeReleased)
     {
         Point center = segmentWhereTheBallCanBeReleased.getStartingPoint();
 
