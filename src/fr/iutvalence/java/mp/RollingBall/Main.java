@@ -17,7 +17,7 @@ public class Main
      */
     public static void main(String[] args)
     {
-        ConsoleDisplay display = new ConsoleDisplay();
+        GraphicalDisplay display = new GraphicalDisplay();
         PlayerFixed player = new PlayerFixed();
         
         Point beginningOfTheSegment = new Point(50, 25);
