@@ -67,6 +67,15 @@ public class ConsoleDisplay implements Display
     }
     
     /**
+     * method to print a message at each round start
+     * @param map
+     *             an unused map
+     */
+    public void roundStart(Map map)
+    {
+        System.out.println("this is a new round !!"); 
+    }
+    /**
      * method to print a message when a round of the game ends
      * 
      * @param playerName
