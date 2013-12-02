@@ -1,7 +1,7 @@
 package fr.iutvalence.java.mp.RollingBall;
 
 /**
- * display of the game
+ * console display of the game 
  * 
  * @author andrejul
  *
