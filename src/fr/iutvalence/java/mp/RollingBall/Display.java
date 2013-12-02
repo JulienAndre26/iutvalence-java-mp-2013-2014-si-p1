@@ -8,7 +8,7 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public interface Display
 {
-    // TODO (think about it) you have defined the interface with regards to the only available
+    // TODO (FIXED) you have defined the interface with regards to the only available
     // implementation : look ahead and imagine what kind of callback method any display needs
     /**
      * method to print a message when the map is created
@@ -19,7 +19,7 @@ public interface Display
      * method to print a message when the ball is created
      */
     public void ballCreated();
-    
+
     /**
      * method to print a message when the ball flies
      * 
@@ -47,7 +47,15 @@ public interface Display
      *                  the name of the player
      */
     public void gameStart(String playerName);
-    
+
+    /**
+     * method which displays the map somewhere
+     * 
+     * @param map
+     *                  the map we need to display
+     */
+    public void roundStart(Map map);
+
     /**
      * method to print a message when a round of the game ends
      * 
@@ -57,7 +65,7 @@ public interface Display
      *              the score of the player
      */
     public void roundEnd(String playerName, double scoreOfThePlayer);
- 
+
     /**
      * method to print the message when the game ends
      * 
@@ -69,7 +77,7 @@ public interface Display
      *                  the score of the player                  
      */
     public void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer);
-    
+
     /**
      * method to print a message when the ball bounces
      */
