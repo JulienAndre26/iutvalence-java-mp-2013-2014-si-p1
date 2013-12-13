@@ -81,8 +81,6 @@ public class RollingBallGame
      */
     public void play()
     {
-        this.movingBall.setCenter(this.player.getStartingPoint(this.map.getSegmentWhereTheBallCanBeReleased()));
-
         boolean youCanPlay;
         int intersectionControl;
         double time = 0;
