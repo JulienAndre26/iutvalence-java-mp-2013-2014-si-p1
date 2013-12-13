@@ -1,4 +1,4 @@
-package RollingBallGame;
+package fr.iutvalence.java.mp.RollingBall;
 
 /**
  * Interface which is an abstract player
@@ -8,13 +8,13 @@ package RollingBallGame;
  */
 public interface Player
 {
-	/**
-	 * method to initialize the game
-	 *
-	 * @param segmentWhereTheBallCanBeReleased
-	 * the segment where the ball can be released to start the play
-	 * @return Point
-	 * the position of the ball
-	 */
-	public Point getStartingPoint(Segment segmentWhereTheBallCanBeReleased);
+    /**
+     * method to initialize the game
+     *
+     * @param segmentWhereTheBallCanBeReleased
+     * the segment where the ball can be released to start the play
+     * @return Point
+     * the position of the ball
+     */
+    public Point getStartingPoint(Segment segmentWhereTheBallCanBeReleased);
 }
