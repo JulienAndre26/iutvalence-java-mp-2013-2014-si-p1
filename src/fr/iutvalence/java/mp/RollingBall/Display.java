@@ -37,7 +37,7 @@ public interface Display
      * @param scoreOfThePlayer
      * the score of the player
      */
-    public void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer, Window myWindow);
+    public void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer);
 
     /**
      * method to print the message when the game starts
@@ -45,7 +45,7 @@ public interface Display
      * @param playerName
      * the name of the player
      */
-    public Window gameStart(String playerName);
+    public void gameStart(String playerName);
 
     // TODO (FIXED) you have defined the interface with regards to the only available
     // implementation : look ahead and imagine what kind of callback method any display needs
@@ -62,7 +62,7 @@ public interface Display
      * @param scoreOfThePlayer
      * the score of the player
      */
-    public void roundEnd(String playerName, double scoreOfThePlayer, Window myWindow);
+    public void roundEnd(String playerName, double scoreOfThePlayer);
 
     /**
      * method which displays the map somewhere
@@ -70,7 +70,7 @@ public interface Display
      * @param map
      * the map we need to display
      */
-    public void roundStart(MovingBall ball, Map map, Window myWindow);
+    public void roundStart(MovingBall ball, Map map);
 
     /**
      * method to print the message when the ball hits a segment

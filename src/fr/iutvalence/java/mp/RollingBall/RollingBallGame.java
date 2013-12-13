@@ -116,13 +116,11 @@ public class RollingBallGame
 
         this.display.ballCreated();
 
-        Window myWindow = this.display.gameStart(this.playerName);
-
         youCanPlay = true;
 
         while (youCanPlay)
         {
-            this.display.roundStart(this.movingBall, this.map, myWindow);
+            this.display.roundStart(this.movingBall, this.map);
 
             // Control of the intersection of the ball with the game's field
             intersectionControl = this.intersectionBallSegmentControl();
@@ -175,12 +173,12 @@ public class RollingBallGame
 
                 this.movingBall = nextPositionOfTheBall;
 
-                this.display.roundEnd(this.playerName, scoreOfThePlayer, myWindow);
+                this.display.roundEnd(this.playerName, scoreOfThePlayer);
 
                 if ( numbOfStaticBall == TIME_OF_STATIC_BALL_MAX )
                 {
                     youCanPlay = false;
-                    this.display.gameEnd(numberOfBounceOfTheBall, this.playerName, scoreOfThePlayer, myWindow);
+                    this.display.gameEnd(numberOfBounceOfTheBall, this.playerName, scoreOfThePlayer);
                 }
                 time++;
 

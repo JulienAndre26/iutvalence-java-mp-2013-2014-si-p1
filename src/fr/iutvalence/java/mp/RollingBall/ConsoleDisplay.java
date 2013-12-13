@@ -1,6 +1,7 @@
 package fr.iutvalence.java.mp.RollingBall;
 
 
+
 /**
  * console display of the game
  *
@@ -52,7 +53,7 @@ public class ConsoleDisplay implements Display
      * the score of the player
      */
     @Override
-    public void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer, Window myWindow)
+    public void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer)
     {
         System.out.println("La balle ne bouge plus :(\n--> end of the play");
         System.out.println("La balle a rebondit " + (int)numberOfBounces + " fois ! :p");
@@ -66,10 +67,9 @@ public class ConsoleDisplay implements Display
      * the name of the player
      */
     @Override
-    public Window gameStart(String playerName)
+    public void gameStart(String playerName)
     {
         System.out.println("welcome " + playerName + " !!");
-        return null;
     }
 
     /**
@@ -89,7 +89,7 @@ public class ConsoleDisplay implements Display
      * the score of the player
      */
     @Override
-    public void roundEnd(String playerName, double scoreOfThePlayer, Window myWindow)
+    public void roundEnd(String playerName, double scoreOfThePlayer)
     {
         System.out.println("Your current score " + playerName + " : " + (int)scoreOfThePlayer + " !!");
     }
@@ -100,7 +100,7 @@ public class ConsoleDisplay implements Display
      * an unused map
      */
     @Override
-    public void roundStart(MovingBall ball, Map map, Window myWindow)
+    public void roundStart(MovingBall ball, Map map)
     {
         System.out.println("this is a new round !!");
     }
