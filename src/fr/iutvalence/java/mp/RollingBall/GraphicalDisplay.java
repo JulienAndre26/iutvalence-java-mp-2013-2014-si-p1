@@ -19,7 +19,6 @@ import javax.swing.JPanel;
  */
 public class GraphicalDisplay extends JFrame implements Display, Player
 {
-
     /** The Constant DIMENSION. */
     public static final Dimension DIMENSION = new Dimension(1024, 728);
 
@@ -131,8 +130,16 @@ public class GraphicalDisplay extends JFrame implements Display, Player
     @Override
     public Point getStartingPoint(Segment segmentWhereTheBallCanBeReleased)
     {
-        // TODO Auto-generated method stub
-        return null;
+        try
+        {
+            this.wait();
+        }
+        catch (InterruptedException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return this.pan.getBall().getCenter();
     }
 
     /**
