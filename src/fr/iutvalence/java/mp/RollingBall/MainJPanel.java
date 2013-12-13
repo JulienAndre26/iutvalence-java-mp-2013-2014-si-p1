@@ -59,6 +59,7 @@ public class MainJPanel extends JPanel
             {
                 System.out.println("t'as clické");
                 MainJPanel.this.gameStarts = true;
+                this.notify();
             }
         });
 
@@ -144,6 +145,17 @@ public class MainJPanel extends JPanel
         int ya =(int)(GraphicalDisplay.DIMENSION.getHeight()-this.ball.getCenter().getY()-300);
         int r = (int)this.ball.getRadius();
         g.fillOval(xa, ya, r, r);
+    }
+
+    /**
+     * Gets the ball.
+     *
+     * @param ball the ball
+     * @return the ball
+     */
+    public Ball getBall()
+    {
+        return this.ball;
     }
 
     /* (non-Javadoc)
