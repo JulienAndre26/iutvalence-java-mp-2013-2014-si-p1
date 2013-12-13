@@ -9,70 +9,46 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class RollingBallGame
 {
-    /**
-     * gravity applied to the ball during a play
-     */
+
+    /** gravity applied to the ball during a play. */
     public static final Vector GRAVITY_POWER = new Vector(0,-10);
 
-    /**
-     * time in air minimum to have a bounce
-     */
+    /** time in air minimum to have a bounce. */
     public static final int TIME_IN_AIR_MIN = 10;
 
-    /**
-     * maximum time of a play
-     */
+    /** maximum time of a play. */
     public static final double TIME_MAX = 10000;
 
-    /**
-     * maximum times that the ball doesn't move (to stop the play if the ball doesn't move)
-     */
+    /** maximum times that the ball doesn't move (to stop the play if the ball doesn't move). */
     public static final double TIME_OF_STATIC_BALL_MAX = 2;
 
-    /**
-     * time to wait to have a real time
-     */
+    /** time to wait to have a real time. */
     public static final double WAITING_TIME = (60/MovingBall.DISPLAY_FREQUENCY)*1000;
 
-    /**
-     * the type of display used
-     */
+    /** the type of display used. */
     private final Display display;
 
-    /**
-     * the map used by the player
-     */
+    /** the map used by the player. */
     private final Map map;
 
-    /**
-     * the ball used by the player
-     */
+    /** the ball used by the player. */
     private MovingBall movingBall;
 
-    /**
-     * the typer of player used
-     */
+    /** the typer of player used. */
     private final Player player;
 
-    /**
-     * the name of the player
-     */
+    /** the name of the player. */
     private final String playerName;
 
     /**
      * RollingBallGame created with three parameters : the name of the player, the
-     * map where the player wants to play and the ball the player want to use
+     * map where the player wants to play and the ball the player want to use.
      *
-     * @param display
-     * the type of display used
-     * @param player
-     * the type of player used
-     * @param playerName
-     * the name of the player
-     * @param map
-     * the map used by the player
-     * @param movingBall
-     * the ball choose by the player
+     * @param display the type of display used
+     * @param player the type of player used
+     * @param playerName the name of the player
+     * @param map the map used by the player
+     * @param movingBall the ball choose by the player
      */
     public RollingBallGame(Display display, Player player, String playerName, Map map, MovingBall movingBall)
     {
@@ -84,7 +60,8 @@ public class RollingBallGame
     }
 
     /**
-     * method to control the intersection between the ball and the segment
+     * method to control the intersection between the ball and the segment.
+     *
      * @return segmentArrayOffset
      * offset of the segment array
      */
@@ -100,7 +77,7 @@ public class RollingBallGame
     }
 
     /**
-     * play the game
+     * play the game.
      */
     public void play()
     {

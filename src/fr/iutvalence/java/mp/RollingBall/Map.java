@@ -1,24 +1,23 @@
 package fr.iutvalence.java.mp.RollingBall;
 
+// TODO: Auto-generated Javadoc
 /**
- *
- * the map is the field where the ball will roll
+ * the map is the field where the ball will roll.
  *
  * @author andrejul
- *
  */
 public class Map
 {
-    /**
-     * physical segments of the field, where the ball an roll
-     */
+
+    /** physical segments of the field, where the ball an roll. */
     private Segment[] segmentsOfTheField;
 
-    /**
-     * segment from where the ball can be released
-     */
+    /** segment from where the ball can be released. */
     private Segment segmentWhereTheBallCanBeReleased;
 
+    /**
+     * Default instantiate of a new map.
+     */
     public Map()
     {
         Point point = new Point(-10,-10);
@@ -41,12 +40,10 @@ public class Map
 
     /**
      * map created with two defined parameters : a set of segments and a segment
-     * where the ball can be released
+     * where the ball can be released.
      *
-     * @param segmentsOfTheField
-     * physical pieces of the field
-     * @param segmentWhereTheBallCanBeReleased
-     * line where the ball can be released
+     * @param segmentsOfTheField physical pieces of the field
+     * @param segmentWhereTheBallCanBeReleased line where the ball can be released
      */
     public Map(Segment[] segmentsOfTheField, Segment segmentWhereTheBallCanBeReleased)
     {
@@ -55,7 +52,7 @@ public class Map
     }
 
     /**
-     * get the segments of the field
+     * get the segments of the field.
      *
      * @return Segments[] segments of the field
      */
@@ -65,7 +62,7 @@ public class Map
     }
 
     /**
-     * get the segment where the ball can be released
+     * get the segment where the ball can be released.
      *
      * @return Segment segment where the ball can be released
      */

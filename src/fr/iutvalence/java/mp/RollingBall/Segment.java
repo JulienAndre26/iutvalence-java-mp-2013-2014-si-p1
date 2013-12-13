@@ -8,30 +8,22 @@ package fr.iutvalence.java.mp.RollingBall;
  */
 public class Segment
 {
-    /**
-     * bounce factor of the segment
-     */
+
+    /** bounce factor of the segment. */
     public final static double BOUNCE_FACTOR = 1.29;
 
-    /**
-     * length of the segment
-     */
+    /** length of the segment. */
     private Point endingPoint;
 
-    /**
-     * starting point
-     */
+    /** starting point. */
     private Point startingPoint;
 
     /**
-     * a segment is created with two Points
+     * a segment is created with two Points.
      *
-     * @param beginningOfTheSegment
-     * beginning of the segment
-     * @param endingOfTheSegment
-     * length of the segment
-     * @throws SamePointException
-     * if beginningOfTheSegment and endingOfTheSegment are equals
+     * @param beginningOfTheSegment beginning of the segment
+     * @param endingOfTheSegment length of the segment
+     * @throws SamePointException if beginningOfTheSegment and endingOfTheSegment are equals
      */
     public Segment(Point beginningOfTheSegment, Point endingOfTheSegment) throws SamePointException
     {
@@ -47,7 +39,7 @@ public class Segment
     }
 
     /**
-     * method to get the ending point of the segment
+     * method to get the ending point of the segment.
      *
      * @return Point the ending point of the segment
      */
@@ -56,6 +48,11 @@ public class Segment
         return this.endingPoint;
     }
 
+    /**
+     * Gets the lenght of the segment.
+     *
+     * @return the lenght
+     */
     public double getLenght()
     {
         double l = Math.sqrt( (( this.getStartingPoint().getX() - this.getEndingPoint().getX() ) * (this.getStartingPoint().getX()-this.getEndingPoint().getX() ))
@@ -64,7 +61,7 @@ public class Segment
     }
 
     /**
-     * method to get the middle point of a segment
+     * method to get the middle point of a segment.
      *
      * @return Point
      * the middle Point
@@ -76,9 +73,9 @@ public class Segment
     }
 
     /**
-     * method to get the component point which characterizes the reacting power
-     * @param movingBall
-     * the ball which hits the segment
+     * method to get the component point which characterizes the reacting power.
+     *
+     * @param movingBall the ball which hits the segment
      * @return Point
      * the component point of the reacting power
      */
@@ -109,7 +106,6 @@ public class Segment
                 return new Vector( length * BOUNCE_FACTOR, 0 );
             }
         }
-
         double beta = Math.atan( ( this.endingPoint.getY() - this.startingPoint.getY() ) / ( this.endingPoint.getX() - this.startingPoint.getX() ) ) + (Math.PI/2);
 
         double x = length * BOUNCE_FACTOR * Math.cos(beta);
@@ -119,7 +115,7 @@ public class Segment
     }
 
     /**
-     * method to get the ending point of the segment
+     * method to get the ending point of the segment.
      *
      * @return Point the ending point of the segment
      */
@@ -127,11 +123,11 @@ public class Segment
     {
         return this.startingPoint;
     }
+
     /**
-     * method which tests if a ball is on(/in) a segment
+     * method which tests if a ball is on(/in) a segment.
      *
-     * @param currentBall
-     * the ball we test
+     * @param currentBall the ball we test
      * @return return a boolean, if yes : the ball is on a segment, otherwise
      * it's out of a segment of the map
      */
@@ -175,10 +171,9 @@ public class Segment
 
 
     /**
-     * method to set up the ending point of the segment
+     * method to set up the ending point of the segment.
      *
-     * @param endingPoint
-     * the new ending point wanted
+     * @param endingPoint the new ending point wanted
      */
     public void setEndingPoint(Point endingPoint)
     {
@@ -186,7 +181,8 @@ public class Segment
     }
 
     /**
-     * Returns an ASCII representation of the segment as [ starting point of the segment, ending point of the segment ]
+     * Returns an ASCII representation of the segment as [ starting point of the segment, ending point of the segment ].
+     *
      * @return String
      * the ASCII representation of the segment
      */

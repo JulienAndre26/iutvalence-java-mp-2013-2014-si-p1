@@ -12,11 +12,10 @@ public class Vector extends Point
 {
 
     /**
-     * Vector created with the component of the vector
-     * @param x
-     * abscissa of the component of the vector
-     * @param y
-     * ordered of the component of the vector
+     * Vector created with the component of the vector.
+     *
+     * @param x abscissa of the component of the vector
+     * @param y ordered of the component of the vector
      */
     public Vector(double x, double y)
     {
@@ -24,7 +23,8 @@ public class Vector extends Point
     }
 
     /**
-     * method to get the length of a vector
+     * method to get the length of a vector.
+     *
      * @return Double
      * the length of a vector
      */
@@ -36,10 +36,9 @@ public class Vector extends Point
     }
 
     /**
-     * method to add two vectors
+     * method to add two vectors.
      *
-     * @param vector
-     * the Vector we want to add to the current Vector
+     * @param vector the Vector we want to add to the current Vector
      * @return Vector
      * the resulting Vector
      */
@@ -49,7 +48,8 @@ public class Vector extends Point
     }
 
     /**
-     * Returns an ASCII representation of the vector as the ASCII representation of the point
+     * Returns an ASCII representation of the vector as the ASCII representation of the point.
+     *
      * @return String
      * the ASCII representation of the vector
      */

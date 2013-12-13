@@ -1,33 +1,25 @@
 package fr.iutvalence.java.mp.RollingBall;
 
 /**
- *
- * two integers which define the point
+ * two integers which define the point.
  *
  * @author andrejul
- *
  */
 // TODO (FIXED) maybe it should be better to consider coordinates as doubles
 public class Point
 {
 
-    /**
-     * abscissa of the point
-     */
+    /** abscissa of the point. */
     private final double x;
 
-    /**
-     * ordered of the point
-     */
+    /** ordered of the point. */
     private final double y;
 
     /**
-     * point created with two defined integers
+     * point created with two defined integers.
      *
-     * @param x
-     * abscissa of the point
-     * @param y
-     * ordered of the point
+     * @param x abscissa of the point
+     * @param y ordered of the point
      */
     public Point(double x, double y)
     {
@@ -66,7 +58,7 @@ public class Point
     // TODO (FIXED) finish writing comment
 
     /**
-     * method to get the abscissa of the point
+     * method to get the abscissa of the point.
      *
      * @return integer the abscissa of the point
      */
@@ -76,7 +68,7 @@ public class Point
     }
 
     /**
-     * method to get the ordered of the point
+     * method to get the ordered of the point.
      *
      * @return integer the ordered of the point
      */
@@ -86,7 +78,8 @@ public class Point
     }
 
     /**
-     * Returns an ASCII representation of the point as ( the abscissa of the point, the ordered of the point )
+     * Returns an ASCII representation of the point as ( the abscissa of the point, the ordered of the point ).
+     *
      * @return String
      * the ASCII representation of the vector
      */

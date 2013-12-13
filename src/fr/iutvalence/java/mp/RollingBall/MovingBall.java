@@ -1,34 +1,26 @@
 package fr.iutvalence.java.mp.RollingBall;
 
 /**
- * extend of the class Ball which can be in move
+ * extend of the class Ball which can be in move.
  *
  * @author andrejul
- *
  */
 public class MovingBall extends Ball
 {
 
-    /**
-     * display's frequency of the ball
-     */
+    /** display's frequency of the ball. */
     public final static double DISPLAY_FREQUENCY = 60*30;
 
-    /**
-     * speed vector of the MovingBall
-     */
+    /** speed vector of the MovingBall. */
     private Vector speedVector;
 
     /**
      * MovingBall created with a radius, a center and a vector (the speed of the
-     * ball)
+     * ball).
      *
-     * @param radiusOfTheBallWanted
-     * radius of the ball
-     * @param centerOfTheBallWanted
-     * center of the ball
-     * @param speedOfTheBall
-     * speed of the ball
+     * @param radiusOfTheBallWanted radius of the ball
+     * @param centerOfTheBallWanted center of the ball
+     * @param speedOfTheBall speed of the ball
      */
     public MovingBall(double radiusOfTheBallWanted, Point centerOfTheBallWanted, Vector speedOfTheBall)
     {
@@ -37,7 +29,7 @@ public class MovingBall extends Ball
     }
 
     /**
-     * method to get the speedVector of the ball
+     * method to get the speedVector of the ball.
      *
      * @return Point
      * the speedVector of the ball
@@ -48,7 +40,8 @@ public class MovingBall extends Ball
     }
 
     /**
-     * method to get the next position of the ball at a frequency given
+     * method to get the next position of the ball at a frequency given.
+     *
      * @return Point
      * the next center of the ball
      */
@@ -60,10 +53,9 @@ public class MovingBall extends Ball
     }
 
     /**
-     * method to set the speedVector of the ball
+     * method to set the speedVector of the ball.
      *
-     * @param vector
-     * the new speedVector of the ball
+     * @param vector the new speedVector of the ball
      */
     public void setSpeedVector(Vector vector)
     {
@@ -71,7 +63,8 @@ public class MovingBall extends Ball
     }
 
     /**
-     * Returns an ASCII representation of the movingball as [ the ASCII representation of a ball, the speed of the ball ]
+     * Returns an ASCII representation of the movingball as [ the ASCII representation of a ball, the speed of the ball ].
+     *
      * @return String
      * the ASCII representation of the movingball
      */

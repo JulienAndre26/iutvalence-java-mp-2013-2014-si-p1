@@ -1,18 +1,15 @@
 package fr.iutvalence.java.mp.RollingBall;
 
-
-
 /**
- * console display of the game
+ * console display of the game.
  *
  * @author andrejul
- *
  */
 public class ConsoleDisplay implements Display
 {
 
     /**
-     * method to print a message when the ball is created
+     * method to print a message when the ball is created.
      */
     @Override
     public void ballCreated()
@@ -21,7 +18,7 @@ public class ConsoleDisplay implements Display
     }
 
     /**
-     * method to print a message when the ball bounces
+     * method to print a message when the ball bounces.
      */
     @Override
     public void bounce()
@@ -30,10 +27,9 @@ public class ConsoleDisplay implements Display
     }
 
     /**
-     * method to print a message when the ball flies
+     * method to print a message when the ball flies.
      *
-     * @param movingBall
-     * the moving ball which is flying
+     * @param movingBall the moving ball which is flying
      */
     @Override
     public void flyingBall(MovingBall movingBall)
@@ -43,14 +39,11 @@ public class ConsoleDisplay implements Display
     }
 
     /**
-     * method to print the message when the game ends
+     * method to print the message when the game ends.
      *
-     * @param numberOfBounces
-     * number of bounces of the ball
-     * @param playerName
-     * the name of the player
-     * @param scoreOfThePlayer
-     * the score of the player
+     * @param numberOfBounces number of bounces of the ball
+     * @param playerName the name of the player
+     * @param scoreOfThePlayer the score of the player
      */
     @Override
     public void gameEnd(double numberOfBounces, String playerName, double scoreOfThePlayer)
@@ -61,10 +54,9 @@ public class ConsoleDisplay implements Display
     }
 
     /**
-     * method to print the message when the game starts
+     * method to print the message when the game starts.
      *
-     * @param playerName
-     * the name of the player
+     * @param playerName the name of the player
      */
     @Override
     public void gameStart(String playerName)
@@ -73,20 +65,19 @@ public class ConsoleDisplay implements Display
     }
 
     /**
-     * method to print a message when the map is created
+     * method to print a message when the map is created.
      */
     @Override
     public void mapCreated()
     {
         System.out.println("map created");
     }
+
     /**
-     * method to print a message when a round of the game ends
+     * method to print a message when a round of the game ends.
      *
-     * @param playerName
-     * the name of the player
-     * @param scoreOfThePlayer
-     * the score of the player
+     * @param playerName the name of the player
+     * @param scoreOfThePlayer the score of the player
      */
     @Override
     public void roundEnd(String playerName, double scoreOfThePlayer)
@@ -95,9 +86,10 @@ public class ConsoleDisplay implements Display
     }
 
     /**
-     * method to print a message at each round start
-     * @param map
-     * an unused map
+     * method to print a message at each round start.
+     *
+     * @param ball the ball
+     * @param map an unused map
      */
     @Override
     public void roundStart(MovingBall ball, Map map)
@@ -106,14 +98,11 @@ public class ConsoleDisplay implements Display
     }
 
     /**
-     * method to print the message when the ball hits a segment
+     * method to print the message when the ball hits a segment.
      *
-     * @param segmentHit
-     * the segment hit
-     * @param reactPower
-     * the vector which characterized
-     * @param ballInMove
-     * the moving ball
+     * @param segmentHit the segment hit
+     * @param reactPower the vector which characterized
+     * @param ballInMove the moving ball
      */
     @Override
     public void theBallHits(Segment segmentHit, Vector reactPower, MovingBall ballInMove)

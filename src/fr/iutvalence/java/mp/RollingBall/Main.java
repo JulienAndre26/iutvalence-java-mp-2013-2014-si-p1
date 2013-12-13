@@ -1,19 +1,18 @@
 package fr.iutvalence.java.mp.RollingBall;
 
+// TODO: Auto-generated Javadoc
 /**
- *
- * main class of the rollingball game
+ * main class of the rollingball game.
  *
  * @author andrejul
- *
  */
 public class Main
 {
+
     /**
-     * start a play of the rollingball game
+     * start a play of the rollingball game.
      *
-     * @param args
-     * undefined reference
+     * @param args undefined reference
      */
     public static void main(String[] args)
     {
@@ -21,8 +20,8 @@ public class Main
         GraphicalDisplay display = new GraphicalDisplay();
         PlayerFixed player = new PlayerFixed();
 
-        Point beginningOfTheSegment = new Point(50, 25);
-        Point endingOfTheSegment = new Point(50, 50);
+        Point beginningOfTheSegment = new Point(50, 50);
+        Point endingOfTheSegment = new Point(50, 75);
 
         Point beginningOfTheSegment1 = new Point(0, 10);
         Point endingOfTheSegment1 = new Point(100, -10);
@@ -41,8 +40,8 @@ public class Main
 
         Vector speedOfTheBall = new Vector(0, 0);
         Point centerOfTheBallWanted = new Point(0,0);
-        //int radiusOfTheBallWanted = 15;
-        int radiusOfTheBallWanted = 10;
+        int radiusOfTheBallWanted = 15;
+        //int radiusOfTheBallWanted = 10;
 
         try
         {
@@ -69,6 +68,7 @@ public class Main
             Map map = new Map(segmentsOfTheField, segmentWhereTheBallCanBeReleased);
 
             String nameOfThePlayerPlaying = "toto";
+
 
             MovingBall ball = new MovingBall(radiusOfTheBallWanted, centerOfTheBallWanted, speedOfTheBall);
 
