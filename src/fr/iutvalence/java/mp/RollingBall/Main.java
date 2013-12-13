@@ -69,6 +69,7 @@ public class Main
 
             String nameOfThePlayerPlaying = "toto";
 
+            centerOfTheBallWanted = display.getStartingPoint(segmentWhereTheBallCanBeReleased);
 
             MovingBall ball = new MovingBall(radiusOfTheBallWanted, centerOfTheBallWanted, speedOfTheBall);
 
