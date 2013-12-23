@@ -4,10 +4,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -27,6 +33,33 @@ public class GraphicalDisplay extends JFrame implements Display, Player
 
     /** The score label. */
     private final JLabel scoreLabel = new JLabel("Score : ");
+
+    /** The menu bar. */
+    private final JMenuBar menuBar = new JMenuBar();
+
+    /** The fichier. */
+    private final JMenu fichier = new JMenu("Fichier");
+
+    /** The edition. */
+    private final JMenu edition = new JMenu("Edition");
+
+    /** The quitter. */
+    private final JMenuItem quitter = new JMenuItem("Quitter");
+
+    /** The lancer. */
+    private final JMenuItem lancer = new JMenuItem("Lancer");
+
+    /** The arreter. */
+    private final JMenuItem arreter = new JMenuItem("Arrêter");
+
+    /** The a propos. */
+    private final JMenuItem aPropos = new JMenuItem("A propos");
+
+    /** The jeu. */
+    private boolean jeu = true;
+
+    /** The t. */
+    private Thread t;
 
     /**
      * Instantiates a new graphical display.
@@ -61,7 +94,76 @@ public class GraphicalDisplay extends JFrame implements Display, Player
         this.scoreLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         this.getContentPane().add(this.scoreLabel, c);
 
+        this.fichier.add(this.lancer);
+
+        this.fichier.add(this.arreter);
+
+        this.fichier.add(this.quitter);
+
+        this.edition.add(this.aPropos);
+
+        this.initMenu();
         this.setVisible(true);
+    }
+
+    /**
+     * Inits the menu.
+     */
+    private void initMenu()
+    {
+        //Menu fichier
+        this.fichier.add(this.lancer);
+        this.arreter.setEnabled(false);
+        this.fichier.add(this.arreter);
+
+        //Ajout du listener pour lancer l'animation
+        this.lancer.addActionListener(new StartAnimationListener());
+        this.fichier.add(this.lancer);
+
+        //Ajout du listener pour arrêter l'animation
+        this.arreter.addActionListener(new StopAnimationListener());
+        this.arreter.setEnabled(false);
+        this.fichier.add(this.arreter);
+
+        this.fichier.addSeparator();
+        //Pour quitter l'application
+        this.quitter.addActionListener(new ActionListener()
+        {
+            public void actionPerfomed(ActionEvent event)
+            {
+                System.exit(0);
+            }
+
+            @Override
+            public void actionPerformed(ActionEvent arg0)
+            {
+                // TODO Auto-generated method stub
+
+            }
+        });
+        this.fichier.add(this.quitter);
+
+        //Menu edition
+        this.edition.add(this.aPropos);
+
+        //Ajout de ce que doit faire le A propos
+        this.aPropos.addActionListener(new ActionListner()
+        {
+            public void actionPerformed(ActionEvent arg0)
+            {
+                JOptionPane jop = new JOptionPane();
+                String mess = "Bonjour";
+                JOptionPane.showMessageDialog(null, mess, "Edition", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        this.edition.add(this.aPropos);
+
+        //Ajout des menus sur la barre des menus
+        this.menuBar.add(this.fichier);
+        this.menuBar.add(this.edition);
+
+        //Ajout de la barre des menus sur la fenêtre
+        this.setJMenuBar(this.menuBar);
     }
 
     /* (non-Javadoc)
@@ -130,20 +232,20 @@ public class GraphicalDisplay extends JFrame implements Display, Player
     @Override
     public Point getStartingPoint(Segment segmentWhereTheBallCanBeReleased)
     {
-        try
-        {
-            this.wait();
-        }
-        catch (InterruptedException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        //        try
+        //        {
+        //            // this.wait();
+        //        }
+        //        catch (InterruptedException e)
+        //        {
+        //            // TODO Auto-generated catch block
+        //            e.printStackTrace();
+        //        }
         return this.pan.getBall().getCenter();
     }
 
     /**
-     * method go which set the new ball and the new map we have to display
+     * method go which set the new ball and the new map we have to display.
      *
      * @param ball the ball
      * @param map the map
@@ -193,4 +295,59 @@ public class GraphicalDisplay extends JFrame implements Display, Player
 
     }
 
+    /**
+     * The main method.
+     *
+     * @param args the arguments
+     */
+    public static void main(String[] args)
+    {
+        GraphicalDisplay GraphDisp = new GraphicalDisplay();
+    }
+
+    /**
+     * The Class BoutonListner.
+     */
+    public class BoutonListner implements ActionListner
+    {
+
+        /** The job. */
+        private JOptionPane job;
+
+        /**
+         * Action performed.
+         *
+         * @param arg0 the arg0
+         */
+        public void actionPerformed(ActionEvent arg0)
+        {
+            JOptionPane jop = new JOptionPane();
+            int option = this.job.showConfirmDialog(null, "Voulez-vous lancer le jeu?", "Lancement du jeu", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if ( option == JOptionPane.OK_OPTION)
+            {
+                GraphicalDisplay.this.lancer.setEnabled(false);
+                GraphicalDisplay.this.arreter.setEnabled(true);
+                GraphicalDisplay.this.jeu = true;
+                GraphicalDisplay.this.t = new Thread(new PlayJeu());
+                GraphicalDisplay.this.t.start();
+            }
+        }
+    }
+
+    /**
+     * The Class PlayJeu.
+     */
+    public class PlayJeu implements Runnable
+    {
+
+        /* (non-Javadoc)
+         * @see java.lang.Runnable#run()
+         */
+        @Override
+        public void run()
+        {
+            GraphicalDisplay.this.go(null, null);
+        }
+    }
 }
