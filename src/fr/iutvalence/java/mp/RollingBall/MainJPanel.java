@@ -12,7 +12,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MainJPanel which contains the map and the ball of the game.
  */
@@ -59,7 +58,7 @@ public class MainJPanel extends JPanel
             {
                 System.out.println("t'as clické");
                 MainJPanel.this.gameStarts = true;
-                this.notify();
+                //    this.notify();
             }
         });
 
